@@ -1,0 +1,4 @@
+package upload
+
+interface BasicImageStorageService {
+}
