@@ -1,0 +1,4 @@
+package upload
+
+class Imgur {
+}
