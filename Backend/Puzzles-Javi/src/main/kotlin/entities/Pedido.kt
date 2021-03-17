@@ -8,16 +8,13 @@ class Pedido(
 
     var fechaPedido: LocalDate = LocalDate.now(),
     var total: Long,
-    var cantidad: Long,
 
     @ManyToOne
     var usuario: Usuario? = null,
 
-    @ManyToOne
-    var listaDePedido: LineaDePedido? = null,
 
-    @OneToMany(mappedBy = "puzzle")
-    var listaPuzzles: MutableList<Puzzle> = mutableListOf(),
+    @OneToMany(mappedBy = "linea_de_pedido")
+    var listaLineaDePedido: MutableList<LineaDePedido> = mutableListOf(),
 
 
     @Id @GeneratedValue val id : Long? = null
