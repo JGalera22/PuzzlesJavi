@@ -14,8 +14,6 @@ class Puzzle(
     @ManyToOne
     var categoria: Categoria? = null,
 
-    @ManyToOne
-    var pedido: Pedido? = null,
 
     @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
     var imagenes: MutableList<ImagenPuzzle> = mutableListOf(),
