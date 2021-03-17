@@ -14,9 +14,10 @@ data class GetUsuarioDto (
     var Vip: Boolean,
 )
 
-
 fun Usuario.toGetUsuarioDto(): GetUsuarioDto=
     GetUsuarioDto(id, username, email, nombreCompleto, fechaAlta, activo, vip)
+
+
 
 data class GetUsuarioRegistroDto(
     var id: Long?,
@@ -27,6 +28,8 @@ data class GetUsuarioRegistroDto(
 
 fun Usuario.toGetUsuarioRegistroDto(): GetUsuarioRegistroDto=
     GetUsuarioRegistroDto(id, username, email, nombreCompleto)
+
+
 
 data class GetLoginDto(
     var id: Long?,
@@ -39,6 +42,8 @@ fun Usuario.toGetLoginDto(): GetLoginDto=
     GetLoginDto(id, username, nombreCompleto, email)
 
 
+
+
 data class LoginUsuarioDto(
     var username : String,
     var password : String,
@@ -46,6 +51,8 @@ data class LoginUsuarioDto(
 
 fun Usuario.loginUsuarioDto(): LoginUsuarioDto=
     LoginUsuarioDto(username, passwd)
+
+
 
 data class GetUsuarioPropiertarioDto(
     var nombreCompleto: String,
