@@ -7,12 +7,10 @@ import javax.persistence.*
 class LineaDePedido(
 
     var precioTotal: Long,
+    var cantidad: Long,
 
     @ManyToOne
-    var usuario: Usuario? = null,
-
-    @ManyToOne
-    var listaDePedido: LineaDePedido? = null,
+    var puzzle: Puzzle? = null,
 
     @OneToMany(mappedBy = "pedido")
     var listaPedidos: MutableList<Pedido> = mutableListOf(),
