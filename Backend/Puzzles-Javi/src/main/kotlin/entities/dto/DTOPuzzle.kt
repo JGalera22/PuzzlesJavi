@@ -1,11 +1,11 @@
 package entities.dto
 
-import entities.Categoria
 import entities.Puzzle
 import entities.Usuario
 
 data class EditPuzzleDto(
     var nombre: String,
+    var categoria: String,
     var descripcion: String,
     var precio: Long,
     var numeroPiezas: Long,
@@ -14,7 +14,7 @@ data class EditPuzzleDto(
 data class GetPuzzleDto(
     var id: Long?,
     var nombre: String,
-    var categoria: Categoria?,
+    var categoria: String,
     var precio: Long,
     var deseado: Boolean,
     var imagen: String?,
@@ -23,7 +23,7 @@ data class GetPuzzleDto(
 data class GetDetallePuzzleDto(
     var id: Long?,
     var nombre: String,
-    var categoria: Categoria?,
+    var categoria: String,
     var descripcion: String,
     var precio: Long,
     var numeroPiezas: Long,
