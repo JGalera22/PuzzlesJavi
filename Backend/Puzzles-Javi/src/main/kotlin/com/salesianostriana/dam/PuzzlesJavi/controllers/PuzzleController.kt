@@ -1,7 +1,7 @@
 package com.salesianostriana.dam.PuzzlesJavi.controllers
 
 
-import com.salesianostriana.dam.G1E1RealEstate.services.UsuarioService
+
 import com.salesianostriana.dam.PuzzlesJavi.entities.Puzzle
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.server.ResponseStatusException
 import com.salesianostriana.dam.PuzzlesJavi.services.ImagenPuzzleService
 import com.salesianostriana.dam.PuzzlesJavi.services.PuzzleService
+import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurBadRequest
 import java.util.*
 import javax.validation.Valid

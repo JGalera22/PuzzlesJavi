@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.G1E1RealEstate.services.base
+package com.salesianostriana.dam.PuzzlesJavi.services.base
 
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*

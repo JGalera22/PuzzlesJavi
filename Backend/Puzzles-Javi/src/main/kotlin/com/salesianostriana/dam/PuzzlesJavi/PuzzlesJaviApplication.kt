@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.PuzzlesJavi
 
-import com.salesianostriana.dam.G1E1RealEstate.services.UsuarioService
+
+
+import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication

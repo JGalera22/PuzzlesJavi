@@ -1,10 +1,10 @@
 package com.salesianostriana.dam.PuzzlesJavi.controllers
 
-import com.salesianostriana.dam.G1E1RealEstate.services.UsuarioService
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
 import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
+import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -41,7 +41,7 @@ class UsuarioController {
     fun edit(@Valid @RequestBody editarUsuario: EditarUsuarioDto, @PathVariable id: Long): GetUsuarioPerfilDto {
         return service.findById(id)
             .map { usuarioEncontrado ->
-                usuarioEncontrado.username = editarUsuario.username
+                //usuarioEncontrado.username = editarUsuario.username
                 usuarioEncontrado.passwd = editarUsuario.passwd
                 usuarioEncontrado.email = editarUsuario.email
                 usuarioEncontrado.nombreCompleto = editarUsuario.nombreCompleto

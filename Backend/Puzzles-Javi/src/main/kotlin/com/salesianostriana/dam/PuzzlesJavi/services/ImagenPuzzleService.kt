@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.PuzzlesJavi.services
 
-import com.salesianostriana.dam.G1E1RealEstate.services.base.BaseServiceImpl
+
 import com.salesianostriana.dam.PuzzlesJavi.entities.ImagenPuzzle
 import com.salesianostriana.dam.PuzzlesJavi.entities.Puzzle
 import org.slf4j.Logger
@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
 import com.salesianostriana.dam.PuzzlesJavi.repositories.ImagenPuzzleRepository
+import com.salesianostriana.dam.PuzzlesJavi.services.base.BaseServiceImpl
 import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurStorageService
 import java.util.*
 

@@ -1,7 +1,8 @@
 package com.salesianostriana.dam.PuzzlesJavi.security.jwt
 
-import com.salesianostriana.dam.G1E1RealEstate.services.UsuarioService
+
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
+import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

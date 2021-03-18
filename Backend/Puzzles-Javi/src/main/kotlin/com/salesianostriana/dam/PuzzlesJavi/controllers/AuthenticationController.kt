@@ -1,7 +1,26 @@
 package com.salesianostriana.dam.PuzzlesJavi.controllers
 
+import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
+import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
+import com.salesianostriana.dam.PuzzlesJavi.error.UsernameExistsException
+import com.salesianostriana.dam.PuzzlesJavi.security.jwt.BearerTokenExtractor
+import com.salesianostriana.dam.PuzzlesJavi.security.jwt.JwtTokenProvider
+import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.UsernameNotFoundException
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.server.ResponseStatusException
+import javax.servlet.http.HttpServletRequest
+import javax.validation.Valid
+import javax.validation.constraints.NotBlank
 
-/*
+
 @RestController
 @RequestMapping("/auth")
 class AuthenticationController(
@@ -86,5 +105,3 @@ data class JwtUserResponse(
     val refreshToken: String,
     val usuario : GetLoginDto
 )
-
-*/

@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.G1E1RealEstate.services.base
+package com.salesianostriana.dam.PuzzlesJavi.services.base
 
 import org.springframework.beans.factory.annotation.Autowired
 

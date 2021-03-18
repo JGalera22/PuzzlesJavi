@@ -55,7 +55,7 @@ class Usuario(
 
 ): UserDetails {
 
-    constructor(username: String, password: String, email: String, nombreCompleto: String, fechaNacimiento: LocalDate, role: String) :
+    constructor(username: String, password: String, email: String, nombreCompleto: String, role: String) :
             this(
                 username, password, email, nombreCompleto, mutableSetOf(role),
                 LocalDate.now(), true, true, true, true
