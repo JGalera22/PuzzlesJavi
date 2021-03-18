@@ -1,5 +1,8 @@
 package entities
 
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
 import java.time.LocalDate
 import javax.persistence.*
 import javax.validation.constraints.Email
@@ -13,7 +16,7 @@ class Usuario(
     @get:NotBlank(message = "{usuario.username.blank}")
     @get:Size( message = "{usuario.username.size}", min= 4, max= 20)
     @Column(unique = true)
-    var username : String,
+    private var username : String,
 
     @get:Size( message = "{usuario.password.size}", min= 8, max = 100)
     var passwd: String,
@@ -24,9 +27,16 @@ class Usuario(
     @get:NotBlank(message = "{usuario.nombreCompleto.blank}")
     var nombreCompleto: String,
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    val roles: MutableSet<String> = HashSet(),
+
     var fechaAlta: LocalDate = LocalDate.now(),
     var vip : Boolean = false,
     var activo: Boolean = true,
+
+    private val nonExpired: Boolean = true,
+    private val nonLocked: Boolean = true,
+    private val credentialIsNonExpired: Boolean = true,
 
 
     @ManyToMany
@@ -43,7 +53,24 @@ class Usuario(
 
     @Id @GeneratedValue val id : Long? = null
 
-){
+): UserDetails {
+
+    constructor(username: String, password: String, email: String, nombreCompleto: String, fechaNacimiento: LocalDate, role: String) :
+            this(
+                username, password, email, nombreCompleto, mutableSetOf(role),
+                LocalDate.now(), true, true, true, true
+            )
+
+    override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
+        return roles.map { SimpleGrantedAuthority("ROLE_$it") }.toMutableList()
+    }
+
+    override fun isEnabled()= activo
+    override fun getUsername() = username
+    override fun getPassword() = passwd
+    override fun isCredentialsNonExpired() = credentialIsNonExpired
+    override fun isAccountNonExpired() = nonExpired
+    override fun isAccountNonLocked() = nonLocked
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
