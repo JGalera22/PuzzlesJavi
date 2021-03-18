@@ -14,7 +14,6 @@ import javax.validation.constraints.NotBlank
 
 
 /*
-
 @RestController
 @RequestMapping("/auth")
 class AuthenticationController(
@@ -36,7 +35,6 @@ class AuthenticationController(
         SecurityContextHolder.getContext().authentication = authentication
         val usuario = authentication.principal as Usuario
         val jwtToken = jwtTokenProvider.generateToken(usuario)
-//        val jwtRefreshToken = jwtTokenProvider.generateRefreshToken(usuario)
 
         return ResponseEntity.status(HttpStatus.CREATED).body(JwtUserResponseLogin(jwtToken, usuario.toGetLoginDto()))
 

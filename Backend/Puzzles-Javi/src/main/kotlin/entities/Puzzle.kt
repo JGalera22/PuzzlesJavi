@@ -10,13 +10,11 @@ class Puzzle(
     var descripcion: String,
     var precio: Long,
     var numeroPiezas: Long,
+    var categoria: String,
 
     @ManyToOne
-    var categoria: Categoria? = null,
+    var admin: Usuario? = null,
 
-
-    @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
-    var imagenes: MutableList<ImagenPuzzle> = mutableListOf(),
 
     @ManyToMany
     @JoinTable(name = "Lista_deseados",
@@ -24,6 +22,9 @@ class Puzzle(
         inverseJoinColumns = [JoinColumn(name="usuario_id")]
     )
     var usuariosDeseados: MutableList<Usuario> = mutableListOf(),
+
+    @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
+    var imagenes: MutableList<ImagenPuzzle> = mutableListOf(),
 
 
     @Id @GeneratedValue val id : Long? = null

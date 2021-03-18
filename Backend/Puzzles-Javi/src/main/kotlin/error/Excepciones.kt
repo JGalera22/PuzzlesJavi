@@ -39,11 +39,9 @@ data class UsernameExistsException(
 ) : ExistsException("El username $username ya existe")
 
 
-/*
 data class DeseadoNotFoundException(
     val javaClass: Class<out Any>
 ) : EntityNotFoundException("No tiene ningun puzzle en su lista de deseados")
 
 
 
-*/

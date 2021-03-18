@@ -8,14 +8,15 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
 import repositories.ImagenPuzzleRepository
+import upload.ImgurStorageService
 import java.util.*
 
 
 @Service
 class ImagenPuzzleService(
-    //private val imageStorageService: ImgurStorageService
+    private val imageStorageService: ImgurStorageService
 ): BaseServiceImpl<ImagenPuzzle, Long, ImagenPuzzleRepository>() {
-    /*
+
     val logger: Logger = LoggerFactory.getLogger(ImagenPuzzleService::class.java)
 
 
@@ -27,7 +28,7 @@ class ImagenPuzzleService(
         }
 
         imagen = image.orElse(null)
-        imagen.puzzle = Puzzle
+        imagen.puzzle = puzzle
         return save(imagen)
     }
 
@@ -40,6 +41,6 @@ class ImagenPuzzleService(
 
     fun findByDeleteHash(deleteHash: String) = repositorio?.findByDeleteHash(deleteHash)
 
-     */
+
 
 }
