@@ -3,10 +3,8 @@ package com.salesianostriana.dam.PuzzlesJavi.controllers
 import com.salesianostriana.dam.PuzzlesJavi.entities.Pedido
 import com.salesianostriana.dam.PuzzlesJavi.entities.Puzzle
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
-import com.salesianostriana.dam.PuzzlesJavi.entities.dto.GetDetallePuzzleDto
-import com.salesianostriana.dam.PuzzlesJavi.entities.dto.GetPedidoDto
-import com.salesianostriana.dam.PuzzlesJavi.entities.dto.toGetDetallePuzzleDto
-import com.salesianostriana.dam.PuzzlesJavi.entities.dto.toGetPedidoDto
+import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
+import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.services.PedidoService
 import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
@@ -27,7 +25,16 @@ class PedidoController {
 
     lateinit var service: PedidoService
 
-    //Detalle de un puzzle
+    @GetMapping("/")
+    fun getAll(): List<GetPedidoDto> {
+        var auth: String = SecurityContextHolder.getContext().authentication.name
+        var usuario: Optional<Usuario>? = usuarioService.findByUsername(auth)
+        return service.findAll()
+            .map { it.toGetPedidoDto(usuario!!.get()) }
+            .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Pedido::class.java)
+    }
+
+    //Detalle de un pedido
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): GetPedidoDto {
         var auth: String = SecurityContextHolder.getContext().authentication.name
