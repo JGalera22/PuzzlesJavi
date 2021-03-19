@@ -12,7 +12,7 @@ class Puzzle(
     var categoria: String,
 
     @ManyToOne
-    var admin: Usuario? = null,
+    var usuario: Usuario? = null,
 
 
     @ManyToMany

@@ -23,6 +23,7 @@ class PedidoController {
     @Autowired
     lateinit var usuarioService: UsuarioService
 
+    @Autowired
     lateinit var service: PedidoService
 
     @GetMapping("/")

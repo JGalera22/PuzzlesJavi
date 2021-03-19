@@ -11,11 +11,14 @@
 				{
 					"name": "Registro",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"username\": \"lmlopez\",\r\n   \"passwd\": \"12345678\",\r\n   \"email\": \"luismi@email.com\",\r\n   \"nombreCompleto\": \"Luis Miguel López Magaña\"\r\n}",
+							"raw": "{\r\n   \"username\": \"lmlopez\",\r\n   \"passwd\": \"12345678\",\r\n   \"email\": \"luismi@email.com\",\r\n   \"nombreCompleto\": \"Luis Miguel López Magaña\",\r\n   \"admin\": true\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,6 +48,9 @@
 				{
 					"name": "Login",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -79,9 +85,6 @@
 				{
 					"name": "Lista Usuario",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -102,14 +105,7 @@
 					"name": "Detalle Usuario",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjE2NDI3MDAzLCJpYXQiOjE2MTYxNjc4MDMsInJlZnJlc2giOmZhbHNlLCJub21icmVDb21wbGV0byI6Ikx1aXMgTWlndWVsIEzDs3BleiBNYWdhw7FhIiwicm9sZXMiOiJVU0VSIn0.WEUW9qT5-V7M8fK3-ikv6aUM5ItCO4bXQ0nUXzZt3qGfkCaynEVe_BnSgPy4cxWKS15QHNWbbENqaNybKvKMNw",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -198,7 +194,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/puzzles/1",
+							"raw": "http://localhost:9000/puzzles/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -206,7 +202,27 @@
 							"port": "9000",
 							"path": [
 								"puzzles",
-								"1"
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista Deseados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/puzzles/deseado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"puzzles",
+								"deseado"
 							]
 						}
 					},
@@ -241,12 +257,12 @@
 					"response": []
 				},
 				{
-					"name": "Lista Deseados",
+					"name": "Añadir Puzzle Deseados",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9000/puzzles/deseado",
+							"raw": "http://localhost:9000/puzzles/deseado/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -254,7 +270,29 @@
 							"port": "9000",
 							"path": [
 								"puzzles",
-								"deseado"
+								"deseado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Puzzle Deseado",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/puzzles/deseado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"puzzles",
+								"deseado",
+								"2"
 							]
 						}
 					},
@@ -276,7 +314,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjE2NDQ2MjEzLCJpYXQiOjE2MTYxODcwMTMsInJlZnJlc2giOmZhbHNlLCJub21icmVDb21wbGV0byI6Ikx1aXMgTWlndWVsIEzDs3BleiBNYWdhw7FhIiwicm9sZXMiOiJBRE1JTiJ9.DjdrkYONtNWHAbjkyUT8sxpSZuU9vQQh8FSPYJALmMFoyBZsBdLXT9qYX98nzFkfkuPWRD3S7BbIEeJ8aA210g",
 				"type": "string"
 			}
 		]

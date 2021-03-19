@@ -63,12 +63,10 @@ data class GetUsuarioPerfilDto(
     var fechaAlta: LocalDate,
     var pedido: List<GetPedidoDto>,
 )
-/*Arreglar*/ // val pedido: List<GetPedidoDto>? = null sobra
-
 
 fun Usuario.toGetUsuarioPerfilDto(): GetUsuarioPerfilDto{
     var listaPedidos: MutableList<GetPedidoDto> = mutableListOf()
-    val pedido: List<GetPedidoDto>? = null
+    val pedido: List<GetPedidoDto> = listOf()
     pedido!!.forEach { i ->
         listaPedidos.add(GetPedidoDto(i.id, i.fechaPedido, i.total))
     }
@@ -86,6 +84,7 @@ data class EditarUsuarioDto(
     var email: String,
     @get:NotBlank(message = "{usuario.nombreCompleto.blank}")
     var nombreCompleto: String,
+    var admin: Boolean?,
     var roles: String?,
 )
 
@@ -98,10 +97,6 @@ data class UsuarioDTO(
 )
 
 fun Usuario.toUserDTO() = UsuarioDTO(username, email, nombreCompleto, roles.joinToString(), id )
-
-fun Usuario.editarUsuarioDto(): EditarUsuarioDto=
-    EditarUsuarioDto(username, passwd, email, nombreCompleto, roles.joinToString())
-
 
 
 data class LoginUsuarioDto(

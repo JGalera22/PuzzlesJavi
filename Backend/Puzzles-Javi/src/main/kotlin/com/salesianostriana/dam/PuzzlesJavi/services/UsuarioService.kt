@@ -18,9 +18,21 @@ class UsuarioService(private val encoder: PasswordEncoder) : BaseServiceImpl<Usu
             return Optional.empty()
         return Optional.of(
             with(newUser) {
-                repositorio!!.save(
-                    Usuario(username, encoder.encode(passwd), email, nombreCompleto, "USER")
-                )
+                if (admin != null) {
+                    if (admin!!) {
+                        repositorio!!.save(
+                            Usuario(username, encoder.encode(passwd), email, nombreCompleto, admin!!, "ADMIN")
+                        )
+                    } else {
+                        repositorio!!.save(
+                            Usuario(username, encoder.encode(passwd), email, nombreCompleto, admin!!, "USER")
+                        )
+                    }
+                } else {
+                    repositorio!!.save(
+                        Usuario(username, encoder.encode(passwd), email, nombreCompleto, false, "USER")
+                    )
+                }
             }
         )
     }
