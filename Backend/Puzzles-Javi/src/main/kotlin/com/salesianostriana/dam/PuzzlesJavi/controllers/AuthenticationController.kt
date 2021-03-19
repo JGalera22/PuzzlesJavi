@@ -42,6 +42,7 @@ class AuthenticationController(
         SecurityContextHolder.getContext().authentication = authentication
         val usuario = authentication.principal as Usuario
         val jwtToken = jwtTokenProvider.generateToken(usuario)
+//        val jwtRefreshToken = jwtTokenProvider.generateRefreshToken(usuario)
 
         return ResponseEntity.status(HttpStatus.CREATED).body(JwtUserResponseLogin(jwtToken, usuario.toGetLoginDto()))
 
@@ -74,7 +75,7 @@ class AuthenticationController(
 
                 return ResponseEntity.status(HttpStatus.CREATED).body(JwtUserResponse(jwtToken,jwtRefreshToken,usuario.toGetLoginDto()))
             }
-        }catch (ex : Exception){
+        }catch (ex : java.lang.Exception){
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Error en la validación del token")
         }
 

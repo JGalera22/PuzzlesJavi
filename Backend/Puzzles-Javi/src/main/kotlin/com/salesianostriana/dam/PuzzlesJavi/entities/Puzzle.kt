@@ -14,6 +14,7 @@ class Puzzle(
     @ManyToOne
     var admin: Usuario? = null,
 
+
     @ManyToMany
     @JoinTable(name = "Lista_deseados",
         joinColumns = [JoinColumn(name="puzzle_id")],
