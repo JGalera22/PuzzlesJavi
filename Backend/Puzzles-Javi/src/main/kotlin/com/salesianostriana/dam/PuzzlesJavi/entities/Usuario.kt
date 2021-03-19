@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities
 
+import com.salesianostriana.dam.PuzzlesJavi.entities.Pedido
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
@@ -45,11 +46,10 @@ class Usuario(
         inverseJoinColumns = [JoinColumn(name="puzzle_id")]
     )
     var puzzlesDeseados: MutableList<Puzzle> = mutableListOf(),
-
-
-    @OneToMany(mappedBy = "pedido")
-    var listaPedido: MutableList<Pedido> = mutableListOf(),
-
+    /*
+    @OneToMany(mappedBy = "listaPedidos")
+    var listaPedidos: MutableList<Pedido> = mutableListOf(),
+*/
 
     @Id @GeneratedValue val id : Long? = null
 

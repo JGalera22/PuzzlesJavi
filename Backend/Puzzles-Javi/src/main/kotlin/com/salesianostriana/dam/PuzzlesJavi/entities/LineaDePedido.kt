@@ -11,9 +11,8 @@ class LineaDePedido(
     @ManyToOne
     var puzzle: Puzzle? = null,
 
-    @OneToMany(mappedBy = "pedido")
-    var listaPedidos: MutableList<Pedido> = mutableListOf(),
-
+    @ManyToOne
+    var pedido: Pedido? = null,
 
     @Id @GeneratedValue val id : Long? = null
 

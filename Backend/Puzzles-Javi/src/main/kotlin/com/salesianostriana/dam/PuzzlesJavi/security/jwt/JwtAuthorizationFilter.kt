@@ -40,7 +40,7 @@ class JwtAuthorizationFilter(
                         UsernameNotFoundException("No se ha podido encontrar un usuario con ese ID")
                     }
 
-                    val authentication = UsernamePasswordAuthenticationToken(user, user.roles, user.authorities)
+                    val authentication = UsernamePasswordAuthenticationToken(user, user.roles/*, user.authorities*/)
                     authentication.details = WebAuthenticationDetails(request)
                     SecurityContextHolder.getContext().authentication = authentication
 
@@ -60,7 +60,7 @@ class JwtAuthorizationFilter(
 @Service
 class BearerTokenExtractor {
 
-    fun getJwtFromRequest(request: HttpServletRequest): Optional<String> {
+    fun getJwtFromRequest(request: HttpServletRequest): Optional<String>{
         val bearerToken = request.getHeader(JwtTokenProvider.TOKEN_HEADER)
         return if(StringUtils.hasText(bearerToken) && bearerToken.startsWith(JwtTokenProvider.TOKEN_PREFIX)){
             Optional.of(bearerToken.substring(JwtTokenProvider.TOKEN_PREFIX.length, bearerToken.length))

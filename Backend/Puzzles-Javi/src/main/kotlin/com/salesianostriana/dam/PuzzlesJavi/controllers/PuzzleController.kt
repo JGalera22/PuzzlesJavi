@@ -22,7 +22,6 @@ import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurBadRequest
 import java.util.*
 import javax.validation.Valid
 
-
 @RestController
 @RequestMapping("/puzzle")
 class PuzzleController {

@@ -71,10 +71,19 @@ class WebSecurityConfiguration(
             .antMatchers(HttpMethod.POST, "/auth/login", "/auth/token", "/auth/register").permitAll()
             .antMatchers(HttpMethod.GET, "/puzzle", "/puzzle/{id}").permitAll()
 
-            .antMatchers(HttpMethod.GET, "/viviendas/deseado").hasRole("USER")
-            .antMatchers(HttpMethod.POST, "/puzzle", "/puzzle/deseado/{id}", "/puzzle/{id}/img").hasRole("USER")
-            .antMatchers(HttpMethod.PUT, "/puzzle/{id}").hasRole("USER")
-            .antMatchers(HttpMethod.DELETE, "/puzzle/{id}", "/puzzle/deseado/{id}", "/puzzle/{id}/img/{hash}").hasRole("USER")
+            .antMatchers(HttpMethod.GET, "/viviendas/deseado", "/puzzle", "/puzzle/{id}").hasRole("USER")
+            .antMatchers(HttpMethod.POST, "/puzzle/deseado/{id}").hasRole("USER")
+            .antMatchers(HttpMethod.DELETE,"/puzzle/deseado/{id}").hasRole("USER")
+            .antMatchers(HttpMethod.GET, "usuario/mine").hasRole("USER")
+
+            .antMatchers(HttpMethod.GET, "/viviendas/deseado", "/puzzle", "/puzzle/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.POST, "/puzzle", "/puzzle/deseado/{id}", "/puzzle/{id}/img").hasRole("ADMIN")
+            .antMatchers(HttpMethod.PUT, "/puzzle/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.DELETE, "/puzzle/{id}", "/puzzle/deseado/{id}", "/puzzle/{id}/img/{hash}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.GET, "usuario/mine").hasRole("ADMIN")
+            .antMatchers(HttpMethod.GET, "/usuario", "/usuario/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.PUT, "/usuario/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.DELETE, "usuario/{id}").hasRole("ADMIN")
 
         http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter::class.java)
 

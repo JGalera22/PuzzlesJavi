@@ -88,8 +88,6 @@ fun Puzzle.toGetDetallePuzzleDto(usuario: Usuario?): GetDetallePuzzleDto {
     imagenes.forEach { i ->
         listaImagenes.add(GetImagenDetalleDto(i.id, "${url}${i.dataId}", i.deleteHash))
     }
-    //var propietario = GetUsuarioPropiertarioDto(propietario!!.nombreCompleto, "https://robohash.org/${propietario!!.username}")
-
     return GetDetallePuzzleDto(
         id,
         nombre,

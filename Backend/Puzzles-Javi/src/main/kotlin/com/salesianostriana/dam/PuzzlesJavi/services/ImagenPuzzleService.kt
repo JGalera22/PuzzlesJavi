@@ -33,10 +33,10 @@ class ImagenPuzzleService(
         return save(imagen)
     }
 
-    override fun delete(i: ImagenPuzzle) {
-        logger.debug("Eliminando la entidad $i")
-        i?.let { it.deleteHash?.let { it1 -> imageStorageService.delete(it1) } }
-        super.delete(i)
+    override fun delete(t: ImagenPuzzle) {
+        logger.debug("Eliminando la entidad $t")
+        t?.let { it.deleteHash?.let { it1 -> imageStorageService.delete(it1) } }
+        super.delete(t)
 
     }
 

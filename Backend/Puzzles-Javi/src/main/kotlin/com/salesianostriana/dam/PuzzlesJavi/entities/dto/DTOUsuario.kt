@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities.dto
 
+import com.salesianostriana.dam.PuzzlesJavi.entities.LineaDePedido
 import com.salesianostriana.dam.PuzzlesJavi.entities.Pedido
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 import java.time.LocalDate
@@ -21,7 +22,6 @@ data class GetUsuarioDto (
 
     @get:NotBlank(message = "{usuario.nombreCompleto.blank}")
     var nombreCompleto: String,
-
 
     var fechaAlta: LocalDate,
     var Activo: Boolean,
@@ -60,13 +60,19 @@ data class GetUsuarioPerfilDto(
     var email: String,
     var nombreCompleto: String,
     var fechaAlta: LocalDate,
-    var listaPedido: MutableList<Pedido>,
+    var pedido: List<GetPedidoDto>,
 )
+/*Arreglar*/ // val pedido: List<GetPedidoDto>? = null sobra
 
 
-fun Usuario.toGetUsuarioPerfilDto(): GetUsuarioPerfilDto=
-    GetUsuarioPerfilDto(username, email, nombreCompleto, fechaAlta, listaPedido)
-
+fun Usuario.toGetUsuarioPerfilDto(): GetUsuarioPerfilDto{
+    var listaPedidos: MutableList<GetPedidoDto> = mutableListOf()
+    val pedido: List<GetPedidoDto>? = null
+    pedido!!.forEach { i ->
+        listaPedidos.add(GetPedidoDto(i.id, i.fechaPedido, i.total))
+    }
+    return GetUsuarioPerfilDto(username, email, nombreCompleto, fechaAlta, listaPedidos)
+}
 
 data class EditarUsuarioDto(
     @get:NotBlank(message = "{usuario.username.blank}")
@@ -89,12 +95,12 @@ data class UsuarioDTO(
     var roles: String,
     val id: Long? = null
 )
-/*
+
 fun Usuario.toUserDTO() = UsuarioDTO(username, email, nombreCompleto, roles.joinToString(), id )
 
 fun Usuario.editarUsuarioDto(): EditarUsuarioDto=
     EditarUsuarioDto(username, passwd, email, nombreCompleto, roles.joinToString())
-*/
+
 
 
 data class LoginUsuarioDto(

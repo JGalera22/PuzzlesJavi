@@ -6,6 +6,13 @@ plugins {
 	kotlin("jvm") version "1.4.30"
 	kotlin("plugin.spring") version "1.4.30"
 	kotlin("plugin.jpa") version "1.4.30"
+	kotlin("plugin.allopen") version "1.4.21"
+}
+
+allOpen {
+	annotation("javax.persistence.Entity")
+	annotation("javax.persistence.Embeddable")
+	annotation("javax.persistence.MappedSuperclass")
 }
 
 group = "com.salesianostriana.dam"
@@ -25,11 +32,12 @@ dependencies {
 	implementation( "io.jsonwebtoken","jjwt-api","0.11.2")
 	runtimeOnly ("io.jsonwebtoken", "jjwt-impl", "0.11.2")
 	runtimeOnly ("io.jsonwebtoken", "jjwt-jackson", "0.11.2")
-	implementation("org.springframework.boot:spring-boot-starter-com.salesianostriana.dam.PuzzlesJavi.security")
 	runtimeOnly("com.h2database:h2")
+	implementation("org.springframework.boot:spring-boot-starter-security")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("org.springframework.com.salesianostriana.dam.PuzzlesJavi.security:spring-com.salesianostriana.dam.PuzzlesJavi.security-test")
-	implementation("org.springframework.boot:spring-boot-starter-com.salesianostriana.dam.PuzzlesJavi.validation")
+	testImplementation("org.springframework.security:spring-security-test")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
 }
 
 tasks.withType<KotlinCompile> {

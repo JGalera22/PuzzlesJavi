@@ -12,9 +12,8 @@ class Pedido(
     @ManyToOne
     var usuario: Usuario? = null,
 
-
-    @OneToMany(mappedBy = "linea_de_pedido")
-    var listaLineaDePedido: MutableList<LineaDePedido> = mutableListOf(),
+    @OneToMany(mappedBy = "pedido")
+    var pedido: MutableList<LineaDePedido> = mutableListOf(),
 
 
     @Id @GeneratedValue val id : Long? = null
