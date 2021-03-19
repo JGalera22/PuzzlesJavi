@@ -87,7 +87,7 @@ class JwtTokenProvider (
 
 
     /**
-     * Método privado usado para validar un token. Comprueba que no hay com.salesianostriana.dam.PuzzlesJavi.error en la firma,
+     * Método privado usado para validar un token. Comprueba que no hay error en la firma,
      * que está bien formado, que no ha expirado, que está completo y soportado.
      * Además, comprueba que es el tipo de token adecuado, es decir, que no estamos
      * usando el token de refresco para hacer peticiones.

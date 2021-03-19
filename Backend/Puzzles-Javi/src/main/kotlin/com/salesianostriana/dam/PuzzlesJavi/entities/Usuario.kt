@@ -59,7 +59,7 @@ class Usuario(
     constructor(username: String, password: String, email: String, nombreCompleto: String, role: String) :
             this(
                 username, password, email, nombreCompleto, mutableSetOf(role),
-                LocalDate.now(), true, true, true, true
+                LocalDate.now(), false, true, true, true
             )
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {

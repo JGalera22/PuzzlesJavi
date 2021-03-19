@@ -23,7 +23,7 @@ import java.util.*
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("/puzzle")
+@RequestMapping("/puzzles")
 class PuzzleController {
 
     @Autowired
@@ -42,36 +42,25 @@ class PuzzleController {
 
     )
             : List<GetPuzzleDto> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        if(usuario!!.isPresent){
-            return service.getPuzzleFiltrados(categoria)?.map { it.toGetPuzzleDto(usuario!!.get()) }
-                .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Puzzle::class.java)
-        }
-        else{
             return service.getPuzzleFiltrados(categoria)?.map { it.toGetPuzzleDto(null) }
                 .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Puzzle::class.java)
-        }
-
-
-
     }
 
     //Detalle de un puzzle
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): GetDetallePuzzleDto {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        if(usuario!!.isPresent){
+        //var auth : String = SecurityContextHolder.getContext().authentication.name
+        //var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
+        /*if(usuario!!.isPresent){
             return service.findById(id)
                 .map { it.toGetDetallePuzzleDto(usuario!!.get()) }
                 .orElseThrow {
                     SingleEntityNotFoundException(id.toString(), Puzzle::class.java)
                 }
         }
-        else{
+        else{*/
             return service.findById(id)
-                .map { it.toGetDetallePuzzleDto(null) }
+                .map { it.toGetDetallePuzzleDto(/*null*/) }
                 .orElseThrow {
                     SingleEntityNotFoundException(id.toString(), Puzzle::class.java)
                 }
@@ -79,7 +68,7 @@ class PuzzleController {
 
 
 
-    }
+
 
     //Lista de deseados
     @GetMapping("/deseado")
@@ -94,10 +83,10 @@ class PuzzleController {
 
 
     //Crear puzzle
-    @PostMapping
+    @PostMapping("/")
     fun create(@Valid @RequestBody nuevoPuzzle: EditPuzzleDto): ResponseEntity<GetDetallePuzzleDto> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
+        //var auth : String = SecurityContextHolder.getContext().authentication.name
+        //var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
         return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(
@@ -108,9 +97,9 @@ class PuzzleController {
                         nuevoPuzzle.precio,
                         nuevoPuzzle.numeroPiezas,
                         nuevoPuzzle.categoria,
-                        usuario!!.get()
+                        //usuario!!.get()
                     )
-                ).toGetDetallePuzzleDto(usuario!!.get())
+                ).toGetDetallePuzzleDto(/*usuario!!.get()*/)
             )
 
     }
@@ -118,8 +107,8 @@ class PuzzleController {
     //editar un puzzle
     @PutMapping("/{id}")
     fun edit(@Valid @RequestBody editarPuzzle: EditPuzzleDto, @PathVariable id: Long): GetDetallePuzzleDto {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
+        /*var auth : String = SecurityContextHolder.getContext().authentication.name
+        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)*/
         return service.findById(id)
             .map { puzzleEncontrado ->
                 puzzleEncontrado.nombre = editarPuzzle.nombre
@@ -128,7 +117,7 @@ class PuzzleController {
                 puzzleEncontrado.numeroPiezas = editarPuzzle.numeroPiezas
                 puzzleEncontrado.categoria = editarPuzzle.categoria
 
-                service.save(puzzleEncontrado).toGetDetallePuzzleDto(usuario!!.get())
+                service.save(puzzleEncontrado).toGetDetallePuzzleDto(/*usuario!!.get()*/)
             }
             .orElseThrow { SingleEntityNotFoundException(id.toString(), Puzzle::class.java) }
     }
@@ -144,8 +133,8 @@ class PuzzleController {
     //Añadir imagen a un puzzle
     @PostMapping("/{id}/img")
     fun createImage(@PathVariable id: Long, @RequestPart("file") file: MultipartFile): ResponseEntity<GetDetallePuzzleDto> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
+        /*var auth : String = SecurityContextHolder.getContext().authentication.name
+        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)*/
 
         var puzzle: Puzzle = service.findById(id).orElse(null)
 
@@ -153,7 +142,7 @@ class PuzzleController {
             try {
                 imagenService.save(file, puzzle)
                 return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(puzzle.toGetDetallePuzzleDto(usuario!!.get()))
+                    .body(puzzle.toGetDetallePuzzleDto(/*usuario!!.get()*/))
             } catch (ex: ImgurBadRequest) {
                 throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la subida de la imagen")
             }

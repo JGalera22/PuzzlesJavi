@@ -18,7 +18,12 @@ class JwtAuthenticationEntryPoint (
         response?.status = HttpStatus.UNAUTHORIZED.value()
         response?.contentType = "application/json"
         response?.writer?.println(mapper.writeValueAsString(authException?.message?.let { MensajeError(it) }))
+
+
     }
+
+
+
 }
 
 data class MensajeError(

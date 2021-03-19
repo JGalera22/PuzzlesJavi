@@ -14,7 +14,7 @@ class PuzzleService(): BaseServiceImpl<Puzzle, Long, PuzzleRepository>() {
     fun getPuzzleFiltrados(categoria: String): List<Puzzle>? {
         var lista: List<Puzzle>? = repositorio?.findAll()
         if (categoria != "todas") {
-            lista = lista?.filter { it.categoria.toString().toLowerCase() == categoria.toLowerCase() }
+            lista = lista?.filter { it.categoria.toLowerCase() == categoria.toLowerCase() }
         }
         return lista
     }

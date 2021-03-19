@@ -29,7 +29,6 @@ class ImgurStorageServiceImpl(
             var imgReq =
                 NewImageReq(
                     Base64.getEncoder().encodeToString(file.bytes),
-                    /*imgToBase64Data(file),*/
                     file.originalFilename.toString())
             var imgRes = imgurService.upload(imgReq)
             if(imgRes.isPresent)

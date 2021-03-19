@@ -5,10 +5,10 @@ import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 
 data class EditPuzzleDto(
     var nombre: String,
-    var categoria: String,
     var descripcion: String,
     var precio: Long,
     var numeroPiezas: Long,
+    var categoria: String,
 )
 
 data class GetPuzzleDto(
@@ -69,10 +69,10 @@ fun Puzzle.toGetPuzzleDto(usuario: Usuario?): GetPuzzleDto {
 
 }
 
-fun Puzzle.toGetDetallePuzzleDto(usuario: Usuario?): GetDetallePuzzleDto {
+fun Puzzle.toGetDetallePuzzleDto(/*usuario: Usuario?*/): GetDetallePuzzleDto {
 
     var deseado = false
-
+/*
     if (usuario != null){
         for (puzzle in usuario.puzzlesDeseados){
             if (puzzle.id == id){
@@ -81,7 +81,7 @@ fun Puzzle.toGetDetallePuzzleDto(usuario: Usuario?): GetDetallePuzzleDto {
 
         }
     }
-
+*/
     var url : String = "http://10.0.2.2:9000/files/"
 
     var listaImagenes: MutableList<GetImagenDetalleDto> = mutableListOf()

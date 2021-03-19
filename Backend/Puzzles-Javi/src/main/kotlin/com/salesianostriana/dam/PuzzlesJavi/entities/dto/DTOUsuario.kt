@@ -38,10 +38,11 @@ data class GetUsuarioRegistroDto(
     var username : String,
     var email: String,
     var nombreCompleto: String,
+    //ar roles: String?,
 )
 
 fun Usuario.toGetUsuarioRegistroDto(): GetUsuarioRegistroDto=
-    GetUsuarioRegistroDto(id, username, email, nombreCompleto)
+    GetUsuarioRegistroDto(id, username, email, nombreCompleto,/* roles.joinToString()*/)
 
 
 

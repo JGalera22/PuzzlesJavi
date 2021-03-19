@@ -16,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
+import java.lang.Exception
 import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
 import javax.validation.constraints.NotBlank
@@ -75,7 +76,7 @@ class AuthenticationController(
 
                 return ResponseEntity.status(HttpStatus.CREATED).body(JwtUserResponse(jwtToken,jwtRefreshToken,usuario.toGetLoginDto()))
             }
-        }catch (ex : java.lang.Exception){
+        }catch (ex : Exception){
             throw ResponseStatusException(HttpStatus.UNAUTHORIZED, "Error en la validación del token")
         }
 

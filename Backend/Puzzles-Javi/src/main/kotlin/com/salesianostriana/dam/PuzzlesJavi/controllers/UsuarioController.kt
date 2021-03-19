@@ -6,7 +6,9 @@ import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 import javax.validation.Valid
 
@@ -19,10 +21,11 @@ class UsuarioController {
 
     //Lista de usuarios
     @GetMapping("/")
-    fun getAllUsers(): List<GetUsuarioDto> =
-        service.findAll()
+    fun getAll(): List<GetUsuarioDto> {
+        return service.findAll()
             .map { it.toGetUsuarioDto() }
             .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Usuario::class.java)
+    }
 
 
     //Detalle de un usuario
@@ -41,7 +44,6 @@ class UsuarioController {
     fun edit(@Valid @RequestBody editarUsuario: EditarUsuarioDto, @PathVariable id: Long): GetUsuarioPerfilDto {
         return service.findById(id)
             .map { usuarioEncontrado ->
-                //usuarioEncontrado.username = editarUsuario.username
                 usuarioEncontrado.passwd = editarUsuario.passwd
                 usuarioEncontrado.email = editarUsuario.email
                 usuarioEncontrado.nombreCompleto = editarUsuario.nombreCompleto
