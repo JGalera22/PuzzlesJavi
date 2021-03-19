@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginActivity">
+
+    <Button
+        android:id="@+id/button_invitado"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FD9E02"
+        android:shadowColor="#4F95B2"
+        android:text="Entrar como invitado"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#4F95B2"
+        android:textColorHint="#4F95B2"
+        android:textColorLink="#4F95B2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_iniciar_sesion"
+        app:rippleColor="#4F95B2"
+        app:strokeColor="#4F95B2" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/password"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="24dp"
+        android:hint="@string/usernameNotLogin"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_foto_principal" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/button_iniciar_sesion"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#4F95B2"
+        android:shadowColor="#4F95B2"
+        android:text="Iniciar Sesión"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#4F95B2"
+        android:textColorHint="#4F95B2"
+        android:textColorLink="#4F95B2"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:rippleColor="#4F95B2"
+        app:strokeColor="#4F95B2" />
+
+    <TextView
+        android:id="@+id/text_view_go_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="¿No tienes cuenta? Regístrate aquí"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_invitado"
+        app:layout_constraintStart_toStartOf="@+id/button_invitado"
+        app:layout_constraintTop_toBottomOf="@+id/button_invitado" />
+
+    <ImageView
+        android:id="@+id/imageView_foto_principal"
+        android:layout_width="203dp"
+        android:layout_height="196dp"
+        android:layout_marginTop="54dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
