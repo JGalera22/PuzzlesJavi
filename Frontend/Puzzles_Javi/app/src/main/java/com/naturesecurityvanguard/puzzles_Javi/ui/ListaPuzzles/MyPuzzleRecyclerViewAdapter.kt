@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.puzzle
+package com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.naturesecurityvanguard.puzzles_Javi.R
 
-import com.naturesecurityvanguard.puzzles_Javi.ui.puzzle.dummy.DummyContent.DummyItem
+import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].

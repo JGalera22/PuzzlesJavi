@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.puzzle
+package com.naturesecurityvanguard.puzzles_Javi.ui.ListaDeseados
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,12 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.naturesecurityvanguard.puzzles_Javi.R
-import com.naturesecurityvanguard.puzzles_Javi.ui.puzzle.dummy.DummyContent
+import com.naturesecurityvanguard.puzzles_Javi.ui.ListaDeseados.dummy.DummyContent
 
 /**
  * A fragment representing a list of Items.
  */
-class PuzzleFragment : Fragment() {
+class ListaPuzzlesDeseadosFragment : Fragment() {
 
     private var columnCount = 1
 
@@ -30,7 +30,7 @@ class PuzzleFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_item_list2, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
@@ -39,7 +39,7 @@ class PuzzleFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyPuzzleRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter = MyListaPuzzlesDeseadosRecyclerViewAdapter(DummyContent.ITEMS)
             }
         }
         return view
@@ -53,7 +53,7 @@ class PuzzleFragment : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            PuzzleFragment().apply {
+            ListaPuzzlesDeseadosFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.puzzle
+package com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles
 
 import android.content.Context
 import android.content.Intent

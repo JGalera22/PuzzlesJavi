@@ -42,4 +42,18 @@
     <string name="categoriaFiltro">Categoría</string>
     <string name="BuscadorFiltro">Buscador de Puzzles</string>
     <string name="editCategoriaFiltro">todas</string>
+    <string name="title_activity_usuario">UsuarioActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_detalle_puzzle">DetallePuzzleActivity</string>
+    <string name="title_activity_detalle_puzzle_deseado">DetallePuzzleDeseadoActivity</string>
+    <string name="title_activity_editar_usuario">EditarUsuarioActivity</string>
+    <string name="title_activity_pago">PagoActivity</string>
+    <string name="title_activity_respuesta_pago">RespuestaPagoActivity</string>
 </resources>
