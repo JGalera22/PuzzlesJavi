@@ -15,4 +15,18 @@ fun Pedido.toGetPedidoDto(usuario: Usuario?):GetPedidoDto{
 }
 
 
+data class GetPedidoDetalleDto(
+    var id: Long?,
+    var fechaPedido: LocalDate = LocalDate.now(),
+    var total: Long,
+    var lineaPedido: MutableList<GetLineaDePedidoDto>,
+)
 
+fun Pedido.toGetPedidoDetalleDto(usuario: Usuario?):GetPedidoDetalleDto{
+    var pedido: MutableList<GetLineaDePedidoDto> = mutableListOf()
+    val lineaDePedido: List<GetLineaDePedidoDto> = listOf()
+    lineaDePedido!!.forEach { i ->
+        pedido.add(GetLineaDePedidoDto(i.id, i.precio, i.cantidad))
+    }
+    return GetPedidoDetalleDto(id, fechaPedido, total, pedido)
+}

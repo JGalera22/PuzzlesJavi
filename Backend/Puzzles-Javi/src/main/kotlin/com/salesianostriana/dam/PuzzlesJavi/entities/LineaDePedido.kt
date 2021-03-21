@@ -5,7 +5,7 @@ import javax.persistence.*
 @Entity
 class LineaDePedido(
 
-    var precioTotal: Long,
+    var precio: Long,
     var cantidad: Long,
 
     @ManyToOne

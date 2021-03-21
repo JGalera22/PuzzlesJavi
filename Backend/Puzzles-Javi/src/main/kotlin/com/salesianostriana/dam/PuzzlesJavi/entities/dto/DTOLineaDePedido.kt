@@ -1,13 +1,24 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities.dto
 
-import java.time.LocalDate
+import com.salesianostriana.dam.PuzzlesJavi.entities.LineaDePedido
+import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 
-data class getLineaDePedidoDto (
-    var fechaPedido: LocalDate,
+data class GetLineaDePedidoDto (
+    var id: Long?,
+    var precio: Long,
     var cantidad: Long,
         )
+
+fun LineaDePedido.toGetLineaDePedidoDto(usuario: Usuario?):GetLineaDePedidoDto{
+    return GetLineaDePedidoDto(id, precio, cantidad)
+}
+
+
 data class getLineaPedidoDetalleDto(
-        var fechaPedido: LocalDate,
+        var precio: Long,
         var cantidad: Long,
         var puzzle: GetPuzzleDto,
 )
+
+
+
