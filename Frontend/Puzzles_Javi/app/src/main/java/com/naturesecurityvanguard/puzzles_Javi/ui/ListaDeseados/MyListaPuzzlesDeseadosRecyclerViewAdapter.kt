@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.naturesecurityvanguard.puzzles_Javi.R
 
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaDeseados.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].

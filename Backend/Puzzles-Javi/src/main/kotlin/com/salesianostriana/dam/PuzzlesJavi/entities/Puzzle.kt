@@ -1,14 +1,24 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities
 
 import javax.persistence.*
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 
 @Entity
 class Puzzle(
 
-    @Column(unique = true) var nombre : String,
+    @get:NotBlank(message = "{puzzle.nombre.blank}")
+    var nombre : String,
+    @get:NotBlank(message = "{puzzle.descripcion.blank}")
     var descripcion: String,
+    @get:NotNull(message="{puzzle.precio.null}")
+    @get:Min(0, message = "{puzzle.precio.min}")
     var precio: Long,
+    @get:NotNull(message="{puzzle.numeroPiezas.null}")
+    @get:Min(0, message = "{puzzle.numeroPiezas.min}")
     var numeroPiezas: Long,
+    @get:NotNull(message="{puzzle.categoria.blank}")
     var categoria: String,
 
     @ManyToOne
