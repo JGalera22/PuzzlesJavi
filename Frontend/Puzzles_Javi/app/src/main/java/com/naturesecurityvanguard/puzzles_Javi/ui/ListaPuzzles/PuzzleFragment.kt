@@ -1,62 +1,54 @@
 package com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.naturesecurityvanguard.puzzles_Javi.R
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.dummy.DummyContent
+import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
+
 
 /**
  * A fragment representing a list of Items.
  */
 class PuzzleFragment : Fragment() {
 
-    private var columnCount = 1
+    var puzzleList: List<Puzzle> = listOf()
+    lateinit var listAdapter: MyPuzzleRecyclerViewAdapter
+    lateinit var viewModel: PuzzleViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_puzzle_list, container, false)
 
+        viewModel = ViewModelProvider(this).get(PuzzleViewModel::class.java)
         // Set the adapter
-        if (view is RecyclerView) {
-            with(view) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyPuzzleRecyclerViewAdapter(DummyContent.ITEMS)
-            }
-        }
+        val v = view as RecyclerView
+        v.layoutManager = LinearLayoutManager(context)
+        listAdapter = MyPuzzleRecyclerViewAdapter(activity as Context, viewModel, puzzleList)
+        v.adapter = listAdapter
+
+
+        viewModel.puzzle.observe(viewLifecycleOwner, Observer {
+            puzzles -> puzzleList = puzzles
+            Log.i("puzzles: ", puzzleList.toString())
+            listAdapter.setData(puzzles)
+        })
+
         return view
-    }
-
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-            PuzzleFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLUMN_COUNT, columnCount)
-                }
-            }
     }
 }

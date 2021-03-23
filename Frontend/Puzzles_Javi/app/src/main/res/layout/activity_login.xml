@@ -11,7 +11,7 @@
         android:id="@+id/button_invitado"
         android:layout_width="220dp"
         android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#FD9E02"
         android:shadowColor="#4F95B2"
         android:text="Entrar como invitado"
@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_iniciar_sesion"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
         app:rippleColor="#4F95B2"
         app:strokeColor="#4F95B2" />
 
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <Button
-        android:id="@+id/button_iniciar_sesion"
+        android:id="@+id/button_login"
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
@@ -111,6 +111,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:srcCompat="@drawable/ic_jigsaw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

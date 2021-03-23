@@ -1,36 +1,29 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.ListaDeseados
+package com.naturesecurityvanguard.puzzles_Javi.ui.Admin.PantallaInicioAdmin
 
 import android.content.Context
 import android.content.Intent
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
 import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle.DetallePuzzleActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzleDeseado.DetallePuzzleDeseadoActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
 import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
-
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
-
-class MyListaPuzzlesDeseadosRecyclerViewAdapter(
+class ZonaAdminRecyclerView(
     private val activity: Context,
-    private val viewModel: PuzzleDeseadosViewModel,
+    private val viewModel: ZonaAdminViewModel,
     private var values: List<Puzzle>
-) : RecyclerView.Adapter<MyListaPuzzlesDeseadosRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ZonaAdminRecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_puzzle_deseado, parent, false)
+            .inflate(R.layout.fragment_puzzle_admin, parent, false)
         return ViewHolder(view)
     }
 
@@ -54,7 +47,7 @@ class MyListaPuzzlesDeseadosRecyclerViewAdapter(
 
 
         holder.rootView.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, DetallePuzzleDeseadoActivity::class.java).apply {
+            val intent = Intent(activity, DetallePuzzleActivity::class.java).apply {
                 putExtra("puzzleId", item.id)
             }
             activity.startActivity(intent)
@@ -67,5 +60,6 @@ class MyListaPuzzlesDeseadosRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int = values.size
+
 
 }

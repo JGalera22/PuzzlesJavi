@@ -1,11 +1,16 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities
 
 import javax.persistence.*
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotNull
 
 @Entity
 class LineaDePedido(
-
+    @get:NotNull(message="{lineaDePedido.precio.null}")
+    @get:Min(0, message = "{lineaDePedido.precio.min}")
     var precio: Long,
+    @get:NotNull(message="{lineaDePedido.cantidad.null}")
+    @get:Min(1, message = "{lineaDePedido.cantidad.min}")
     var cantidad: Long,
 
     @ManyToOne
