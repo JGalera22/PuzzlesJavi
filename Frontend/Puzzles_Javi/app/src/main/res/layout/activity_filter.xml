@@ -7,8 +7,8 @@
     android:padding="20dp"
     tools:context=".ui.ListaPuzzles.FilterActivity">
 
-    <EditText
-        android:id="@+id/edit_categoria_filtro"
+    <spiner
+        android:id="@+id/spiner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -23,12 +23,12 @@
         android:id="@+id/button_filtrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Ver Puzzless"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/lightgreen"
+        android:text="@string/Buscar_filtro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_categoria_filtro" />
+        app:layout_constraintTop_toBottomOf="@+id/spiner" />
 
     <TextView
         android:id="@+id/text_view_titulo_filtrado"

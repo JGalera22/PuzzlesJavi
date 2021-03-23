@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.naturesecurityvanguard.puzzles_Javi.R
-import com.naturesecurityvanguard.puzzles_Javi.ui.Pedido.dummy.DummyContent
 
+/*
 /**
  * A fragment representing a list of Items.
  */
@@ -59,4 +59,4 @@ class PedidoFragment : Fragment() {
                 }
             }
     }
-}
+}*/

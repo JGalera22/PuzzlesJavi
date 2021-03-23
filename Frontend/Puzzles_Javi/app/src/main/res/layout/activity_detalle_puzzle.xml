@@ -10,8 +10,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="97dp">
+        tools:layout_editor_absoluteX="-48dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -86,10 +86,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="30dp"
                 android:layout_height="32dp"
-                android:layout_marginStart="60dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_nombre"
-                app:layout_constraintStart_toEndOf="@+id/textView_nombre"
-                app:layout_constraintTop_toTopOf="@+id/textView_nombre"
+                android:layout_marginStart="32dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_numeroPiezas"
+                app:layout_constraintStart_toEndOf="@+id/textView_numeroPiezas"
+                app:layout_constraintTop_toTopOf="@+id/textView_numeroPiezas"
                 app:srcCompat="@drawable/ic_rompecabezas" />
 
             <Button
@@ -97,7 +97,7 @@
                 android:layout_width="220dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="8dp"
-                android:backgroundTint="#81C784"
+                android:backgroundTint="@color/green"
                 android:shadowColor="#4F95B2"
                 android:text="Añadir a deseados"
                 android:textColor="#FFFFFF"
@@ -116,7 +116,7 @@
                 android:layout_width="220dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#43A047"
+                android:backgroundTint="@color/lightgreen"
                 android:shadowColor="#4F95B2"
                 android:text="COMPRAR"
                 android:textColor="#FFFFFF"

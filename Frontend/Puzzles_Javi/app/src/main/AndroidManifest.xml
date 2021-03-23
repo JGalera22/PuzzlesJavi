@@ -13,7 +13,6 @@
         <activity android:name=".ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity" />
         <activity android:name=".ui.Admin.EditarPuzzle.PuzzleEditarActivity" />
         <activity android:name=".ui.Admin.NuevoPuzzle.PuzzleNuevoActivity" />
-        <activity android:name=".ui.Admin.ListaUsuario.ListaUsuarioActivity" />
         <activity
             android:name=".ui.RespuestaPago.RespuestaPagoActivity"
             android:label="@string/title_activity_respuesta_pago"

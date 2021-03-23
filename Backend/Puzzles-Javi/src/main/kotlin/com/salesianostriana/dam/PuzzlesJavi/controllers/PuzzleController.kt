@@ -93,8 +93,6 @@ class PuzzleController {
     //editar un puzzle
     @PutMapping("/{id}")
     fun edit(@Valid @RequestBody editarPuzzle: EditPuzzleDto, @PathVariable id: Long): GetDetallePuzzleDto {
-        /*var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)*/
         return service.findById(id)
             .map { puzzleEncontrado ->
                 puzzleEncontrado.nombre = editarPuzzle.nombre
@@ -167,9 +165,11 @@ class PuzzleController {
     fun addPuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
         var puzzle = service.findById(id).orElse(null)
         if (puzzle != null) {
-            service.getPuzzlesDeseados(usuario)
-            puzzle.usuariosDeseados.add(usuario)
-            service.save(puzzle)
+            println(puzzle.nombre)
+            println(usuario.username)
+            usuario.puzzlesDeseados.add(puzzle)
+            usuarioService.save(usuario)
+            println(usuario.puzzlesDeseados)
             return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
         } else {
             throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
