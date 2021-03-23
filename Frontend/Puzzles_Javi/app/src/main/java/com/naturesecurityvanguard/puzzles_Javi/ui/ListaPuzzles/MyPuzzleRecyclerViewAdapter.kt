@@ -5,7 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,8 +12,6 @@ import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
 import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle.DetallePuzzleActivity
-
 
 
 class MyPuzzleRecyclerViewAdapter(
@@ -35,7 +32,7 @@ class MyPuzzleRecyclerViewAdapter(
         val precioView: TextView = view.findViewById(R.id.text_view_precio)
         val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
         val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
-        val rootView: View = view.findViewById(R.id.puzzle_view)
+        val rootView: View = view.findViewById(R.id.usuario_view)
     }
 
 

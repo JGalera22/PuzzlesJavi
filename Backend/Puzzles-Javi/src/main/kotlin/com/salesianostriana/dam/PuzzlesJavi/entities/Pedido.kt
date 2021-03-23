@@ -12,7 +12,7 @@ class Pedido(
     @ManyToOne
     var usuario: Usuario? = null,
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", fetch=FetchType.EAGER)
     var pedido: MutableList<LineaDePedido> = mutableListOf(),
 
 

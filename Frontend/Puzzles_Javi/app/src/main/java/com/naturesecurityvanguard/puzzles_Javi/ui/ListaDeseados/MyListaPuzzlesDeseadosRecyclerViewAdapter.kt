@@ -11,10 +11,7 @@ import android.widget.TextView
 import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
-import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle.DetallePuzzleActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzleDeseado.DetallePuzzleDeseadoActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
 
 /**
@@ -40,7 +37,7 @@ class MyListaPuzzlesDeseadosRecyclerViewAdapter(
         val precioView: TextView = view.findViewById(R.id.text_view_precio)
         val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
         val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
-        val rootView: View = view.findViewById(R.id.puzzle_view)
+        val rootView: View = view.findViewById(R.id.usuario_view)
     }
 
 
