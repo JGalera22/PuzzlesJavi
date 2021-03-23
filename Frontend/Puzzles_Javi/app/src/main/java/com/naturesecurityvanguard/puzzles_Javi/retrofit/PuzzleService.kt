@@ -17,7 +17,7 @@ interface PuzzleService {
     fun getDetallePuzzle(@Path("id") paramid: Long): Call<DetallePuzzle>
 
     @POST("puzzle")
-    fun create(@Body nuevaVivienda: PuzzleRequest, @Header("Authorization") token: String) : Call<DetallePuzzle>
+    fun create(@Body nuevoPuzzle: PuzzleRequest, @Header("Authorization") token: String) : Call<DetallePuzzle>
 
     @DELETE("puzzle/{id}")
     fun deletePuzzle(@Header("Authorization") token: String?, @Path("id") paramId: Long): Call<Any>
@@ -30,6 +30,14 @@ interface PuzzleService {
 
     @DELETE("puzzle/deseado/{id}")
     fun deletePuzzleDeseado(@Header("Authorization") token: String?, @Path("id") idPuzzle: Long) : Call<Any>
+/*
+    @GET("puzzle/deseado")
+    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?): Call<DetallePuzzle>
+*/
+
+    @GET("puzzle/deseado")
+    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?,
+                      @Query("cat") paramCategoria : String?): Call<List<Puzzle>>
 
 
 
