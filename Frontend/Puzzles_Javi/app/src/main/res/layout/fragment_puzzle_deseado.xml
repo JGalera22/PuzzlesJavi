@@ -64,4 +64,5 @@
         app:layout_constraintStart_toEndOf="@+id/text_view_precio"
         app:layout_constraintTop_toTopOf="@+id/text_view_precio"
         tools:srcCompat="@drawable/ic_rompecabezas" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,13 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
+import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle.DetallePuzzleActivity
 
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
+
 class MyPuzzleRecyclerViewAdapter(
         private val activity: Context,
         private val viewModel: PuzzleViewModel,
@@ -51,7 +49,7 @@ class MyPuzzleRecyclerViewAdapter(
 
 
         holder.rootView.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, DetallePuzzleActivity::class.java).apply {
+            val intent = Intent(activity, DetallePuzzleAdminActivity::class.java).apply {
                 putExtra("puzzleId", item.id)
             }
             activity.startActivity(intent)
