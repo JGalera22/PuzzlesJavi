@@ -8,6 +8,7 @@ import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
 import com.salesianostriana.dam.PuzzlesJavi.error.DeseadoNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
+import com.salesianostriana.dam.PuzzlesJavi.services.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -15,9 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.server.ResponseStatusException
-import com.salesianostriana.dam.PuzzlesJavi.services.ImagenPuzzleService
-import com.salesianostriana.dam.PuzzlesJavi.services.PuzzleService
-import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurBadRequest
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import java.util.*
@@ -35,6 +33,13 @@ class PuzzleController {
 
     @Autowired
     lateinit var usuarioService: UsuarioService
+
+    @Autowired
+    lateinit var pedidoService: PedidoService
+
+    @Autowired
+    lateinit var LineaDePedidoService: PedidoService
+
 
     //Lista de puzzles
     @GetMapping
@@ -180,13 +185,11 @@ class PuzzleController {
     }
 
     @DeleteMapping("/deseado/{id}")
-    fun deletePuzzleDeseado(@PathVariable id: Long): ResponseEntity<Any> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        usuario!!.get().puzzlesDeseados.forEach { p ->
+    fun deletePuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+        usuario.puzzlesDeseados.forEach { p ->
             if (p.id == id) {
-                usuario!!.get().puzzlesDeseados.remove(p)
-                usuarioService.save(usuario!!.get())
+                usuario.puzzlesDeseados.remove(p)
+                usuarioService.save(usuario)
             }
         }
         return ResponseEntity.noContent().build()
