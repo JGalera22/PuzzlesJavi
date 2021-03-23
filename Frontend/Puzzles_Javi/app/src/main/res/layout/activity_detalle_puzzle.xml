@@ -31,7 +31,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView_foto_principal" />
 
             <TextView
-                android:id="@+id/textView_direccion"
+                android:id="@+id/textView_categoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
@@ -49,7 +49,7 @@
                 android:text="@string/precioDetalle"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_direccion" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_categoria" />
 
             <TextView
                 android:id="@+id/textView_descripcion"
@@ -63,7 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView_precio" />
 
             <TextView
-                android:id="@+id/textView_nombre"
+                android:id="@+id/textView_numeroPiezas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
@@ -126,7 +126,7 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_nombre"
+                app:layout_constraintTop_toBottomOf="@+id/textView_numeroPiezas"
                 app:rippleColor="#4F95B2"
                 app:strokeColor="#4F95B2" />
 
