@@ -19,6 +19,7 @@ import com.salesianostriana.dam.PuzzlesJavi.services.ImagenPuzzleService
 import com.salesianostriana.dam.PuzzlesJavi.services.PuzzleService
 import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurBadRequest
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import java.util.*
 import javax.validation.Valid
 
@@ -36,7 +37,7 @@ class PuzzleController {
     lateinit var usuarioService: UsuarioService
 
     //Lista de puzzles
-    @GetMapping("/")
+    @GetMapping
     fun getAllPuzzles(
         @RequestParam(name = "cat", required = false, defaultValue = "todas") categoria: String,
 
@@ -60,7 +61,7 @@ class PuzzleController {
         }
         else{*/
             return service.findById(id)
-                .map { it.toGetDetallePuzzleDto(/*null*/) }
+                .map { it.toGetDetallePuzzleDto() }
                 .orElseThrow {
                     SingleEntityNotFoundException(id.toString(), Puzzle::class.java)
                 }
@@ -70,23 +71,9 @@ class PuzzleController {
 
 
 
-    //Lista de deseados
-    @GetMapping("/deseado")
-    fun getDeseados(): List<GetPuzzleDto> {
-
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        return service.getPuzzlesDeseados(usuario!!.get())
-            .map { it.toGetPuzzleDto(usuario!!.get()) }
-            .takeIf { it.isNotEmpty() } ?: throw DeseadoNotFoundException(Puzzle::class.java)
-    }
-
-
     //Crear puzzle
-    @PostMapping("/")
+    @PostMapping
     fun create(@Valid @RequestBody nuevoPuzzle: EditPuzzleDto): ResponseEntity<GetDetallePuzzleDto> {
-        //var auth : String = SecurityContextHolder.getContext().authentication.name
-        //var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
         return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(
@@ -97,9 +84,8 @@ class PuzzleController {
                         nuevoPuzzle.precio,
                         nuevoPuzzle.numeroPiezas,
                         nuevoPuzzle.categoria,
-                        //usuario!!.get()
                     )
-                ).toGetDetallePuzzleDto(/*usuario!!.get()*/)
+                ).toGetDetallePuzzleDto()
             )
 
     }
@@ -167,17 +153,24 @@ class PuzzleController {
         return ResponseEntity.noContent().build()
     }
 
+    //Lista de deseados
+    @GetMapping("/deseado")
+    fun getDeseados(@AuthenticationPrincipal usuario: Usuario): List<GetPuzzleDto> {
+        print(service.getPuzzlesDeseados(usuario))
+        return service.getPuzzlesDeseados(usuario)
+            .map { it.toGetPuzzleDto(usuario) }
+            .takeIf { it.isNotEmpty() } ?: throw DeseadoNotFoundException(Puzzle::class.java)
+    }
+
     //Añadir a lista de deseados
     @PostMapping("/deseado/{id}")
-    fun addPuzzleDeseado(@PathVariable id: Long) : ResponseEntity<GetPuzzleDto> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
+    fun addPuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
         var puzzle = service.findById(id).orElse(null)
-
         if (puzzle != null) {
-            usuario!!.get().puzzlesDeseados.add(puzzle)
-            usuarioService.save(usuario!!.get())
-            return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario!!.get()))
+            service.getPuzzlesDeseados(usuario)
+            puzzle.usuariosDeseados.add(usuario)
+            service.save(puzzle)
+            return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
         } else {
             throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
         }
@@ -199,6 +192,9 @@ class PuzzleController {
         return ResponseEntity.noContent().build()
 
     }
+
+
+
 
 
 

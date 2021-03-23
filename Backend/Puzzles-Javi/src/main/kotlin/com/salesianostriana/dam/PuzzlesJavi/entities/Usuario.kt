@@ -28,11 +28,14 @@ class Usuario(
     @get:NotBlank(message = "{usuario.nombreCompleto.blank}")
     var nombreCompleto: String,
 
+    var admin : Boolean = false,
+
     @ElementCollection(fetch = FetchType.EAGER)
     val roles: MutableSet<String> = HashSet(),
 
     var fechaAlta: LocalDate = LocalDate.now(),
     var vip : Boolean = false,
+
     var activo: Boolean = true,
 
     private val nonExpired: Boolean = true,
@@ -56,9 +59,9 @@ class Usuario(
 
 ): UserDetails {
 
-    constructor(username: String, password: String, email: String, nombreCompleto: String, role: String) :
+    constructor(username: String, password: String, email: String, nombreCompleto: String, admin: Boolean, role: String) :
             this(
-                username, password, email, nombreCompleto, mutableSetOf(role),
+                username, password, email, nombreCompleto,admin , mutableSetOf(role),
                 LocalDate.now(), false, true, true, true
             )
 

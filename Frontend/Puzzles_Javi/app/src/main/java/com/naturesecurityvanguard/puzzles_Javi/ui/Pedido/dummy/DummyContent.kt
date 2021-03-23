@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.puzzle.dummy
+package com.naturesecurityvanguard.puzzles_Javi.ui.Pedido.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

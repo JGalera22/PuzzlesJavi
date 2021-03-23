@@ -37,9 +37,45 @@
     <string name="goLogin">¿Ya tienes cuenta? Inicia sesión aquí</string>
     <string name="token">Token</string>
     -->
+
+    <!-- Detalles Puzzle -->
+    <string name="tituloDetalle">Nombre Artículo</string>
+    <string name="precioDetalle">precio €</string>
+    <string name="categoriaDetalle">Categoria</string>
+    <string name="descripcionDetalle">Descripción</string>
+    <string name="numeroPiezasDetalle">Número de Piezas</string>
+
+    <!-- Perfil -->
+    <string name="nombre">Javier García-Galera</string>
+    <string name="username">javGarGal</string>
+    <string name="email">javi@email.com</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="categoriaFiltro">Categoría</string>
     <string name="BuscadorFiltro">Buscador de Puzzles</string>
     <string name="editCategoriaFiltro">todas</string>
+    <string name="title_activity_usuario">UsuarioActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_detalle_puzzle">DetallePuzzleActivity</string>
+    <string name="title_activity_detalle_puzzle_deseado">DetallePuzzleDeseadoActivity</string>
+    <string name="title_activity_editar_usuario">EditarUsuarioActivity</string>
+    <string name="title_activity_pago">PagoActivity</string>
+    <string name="title_activity_respuesta_pago">RespuestaPagoActivity</string>
+    <string name="Boton_editar_perfil">EDITAR</string>
+    <string name="usuario_titulo_historial">Historial de Pedidos</string>
+    <string name="usuario_fecha_pedido">Fecha pedido</string>
+    <string name="usuario_subtotal">Subtotal</string>
+    <string name="precio_puzzle">Precio €</string>
+    <string name="nombre_puzzle">Nombre Puzzle</string>
+    <string name="Categoria_puzzle">Categoría</string>
 </resources>

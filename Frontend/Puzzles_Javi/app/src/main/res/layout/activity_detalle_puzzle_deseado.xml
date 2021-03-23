@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetallePuzzleDeseado.DetallePuzzleDeseadoActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="97dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="20dp"
+                android:paddingEnd="75dp"
+                android:text="@string/tituloDetalle"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_foto_principal" />
+
+            <TextView
+                android:id="@+id/textView_direccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/categoriaDetalle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_titulo" />
+
+            <TextView
+                android:id="@+id/textView_precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/precioDetalle"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_direccion" />
+
+            <TextView
+                android:id="@+id/textView_descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="24dp"
+                android:paddingEnd="75dp"
+                android:text="@string/descripcionDetalle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_precio" />
+
+            <TextView
+                android:id="@+id/textView_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="80dp"
+                android:text="@string/numeroPiezasDetalle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_descripcion" />
+
+            <ImageView
+                android:id="@+id/imageView_foto_principal"
+                android:layout_width="263dp"
+                android:layout_height="133dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_jigsaw" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="60dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_nombre"
+                app:layout_constraintStart_toEndOf="@+id/textView_nombre"
+                app:layout_constraintTop_toTopOf="@+id/textView_nombre"
+                app:srcCompat="@drawable/ic_rompecabezas" />
+
+            <Button
+                android:id="@+id/button_eliminar_deseados"
+                android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#81C784"
+                android:shadowColor="#4F95B2"
+                android:text="Eliminar de deseados"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#4F95B2"
+                android:textColorHint="#4F95B2"
+                android:textColorLink="#4F95B2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_comprar"
+                app:rippleColor="#4F95B2"
+                app:strokeColor="#4F95B2" />
+
+            <Button
+                android:id="@+id/button_comprar"
+                android:layout_width="220dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#43A047"
+                android:shadowColor="#4F95B2"
+                android:text="COMPRAR"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#4F95B2"
+                android:textColorHint="#4F95B2"
+                android:textColorLink="#4F95B2"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_nombre"
+                app:rippleColor="#4F95B2"
+                app:strokeColor="#4F95B2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

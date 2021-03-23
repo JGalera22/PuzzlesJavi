@@ -5,7 +5,10 @@ import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
 import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import java.util.*
@@ -17,10 +20,11 @@ import javax.validation.Valid
 @RequestMapping("/usuario")
 class UsuarioController {
 
+    @Autowired
     lateinit var service: UsuarioService
 
     //Lista de usuarios
-    @GetMapping("/")
+    @GetMapping
     fun getAll(): List<GetUsuarioDto> {
         return service.findAll()
             .map { it.toGetUsuarioDto() }
@@ -37,6 +41,11 @@ class UsuarioController {
                     SingleEntityNotFoundException(id.toString(), Usuario::class.java)
                 }
     }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/me")
+    fun getUsuarioPerfil(@AuthenticationPrincipal usuario: Usuario):GetUsuarioDto=
+        usuario.toGetUsuarioDto()
 
 
     //editar un usuario
