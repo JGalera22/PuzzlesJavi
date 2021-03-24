@@ -46,7 +46,7 @@ class ListaPuzzlesDeseadosFragment : Fragment() {
 
         viewModel.puzzlesDeseados.observe(viewLifecycleOwner, Observer {
                 puzzlesDeseados -> puzzlesDeseadosList = puzzlesDeseados
-            Log.i("puzzles: ", puzzlesDeseadosList.toString())
+            Log.i("puzzles Deseados: ", puzzlesDeseadosList.toString())
             listAdapter.setData(puzzlesDeseados)
         })
 

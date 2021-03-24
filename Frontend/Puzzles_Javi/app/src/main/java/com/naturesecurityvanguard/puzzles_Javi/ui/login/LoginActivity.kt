@@ -45,7 +45,7 @@ class LoginActivity() : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
-        btnLogin = findViewById(R.id.button_añadir_deseados)
+        btnLogin = findViewById(R.id.button_login)
         btnInvitado = findViewById(R.id.button_invitado)
         editTextUsername = findViewById(R.id.username)
         editTextPass = findViewById(R.id.password)

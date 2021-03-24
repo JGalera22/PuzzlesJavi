@@ -2,6 +2,7 @@ package com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,7 @@ class DetallePuzzleActivity : AppCompatActivity() {
     lateinit var descripcionView: TextView
     lateinit var numeroPiezasView: TextView
     lateinit var imageView: ImageView
+    lateinit var btn: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +54,7 @@ class DetallePuzzleActivity : AppCompatActivity() {
         descripcionView = findViewById(R.id.textView_descripcion)
         numeroPiezasView = findViewById(R.id.textView_numeroPiezas)
         imageView = findViewById(R.id.imageView_foto_principal)
+        btn = findViewById(R.id.button_añadir_deseados)
 
     }
 

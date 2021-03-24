@@ -4,5 +4,5 @@ class UsuarioDetalleList (
     val username: String,
     val email: String,
     val nombreCompleto: String,
-    val id: Long? = null
+    val id: Long?,
 )

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="planets_array">
+    <string-array name="numero_piezas_array">
         <item>>400 Piezas</item>
         <item>500 Piezas</item>
         <item>1000 Piezas</item>
