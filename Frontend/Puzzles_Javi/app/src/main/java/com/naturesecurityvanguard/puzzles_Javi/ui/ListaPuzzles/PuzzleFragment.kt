@@ -45,7 +45,7 @@ class PuzzleFragment : Fragment() {
 
         viewModel.puzzle.observe(viewLifecycleOwner, Observer {
             puzzles -> puzzleList = puzzles
-            Log.i("puzzles: ", puzzleList.toString())
+            Log.i("puzzles Home: ", puzzleList.toString())
             listAdapter.setData(puzzles)
         })
 

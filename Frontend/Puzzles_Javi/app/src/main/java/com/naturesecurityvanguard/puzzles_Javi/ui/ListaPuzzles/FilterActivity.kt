@@ -11,36 +11,25 @@ import com.naturesecurityvanguard.puzzles_Javi.MainActivity
 import com.naturesecurityvanguard.puzzles_Javi.R
 
 
-class FilterActivity : AppCompatActivity(
-) {
+class FilterActivity : AppCompatActivity() {
     lateinit var categoriaSpiner: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
-        var boton:Button = findViewById(R.id.button_filtrar)
-        val spinner: Spinner = findViewById(R.id.spiner)
+        categoriaSpiner = findViewById(R.id.spinner)
 
         ArrayAdapter.createFromResource(
             this,
-            R.array.planets_array,
+            R.array.numero_piezas_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
+            categoriaSpiner.adapter = adapter
         }
 
-        class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
-
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-            }
-        }
-
-
+        val boton:Button = findViewById(R.id.button_filtrar)
 
         boton.setOnClickListener(View.OnClickListener {
 

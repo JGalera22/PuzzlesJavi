@@ -87,6 +87,43 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
         })
     }
 
+    fun createPuzzleDeseado(puzzleId: Long, deseado: Boolean) {
+
+        if(!deseado){
+            service.createPuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Puzzle>{
+
+                override fun onResponse(call: Call<Puzzle>, response: Response<Puzzle>) {
+                    if(response.code() == 201){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Puzzle>, t: Throwable) {
+
+                }
+
+            })
+        }
+        else{
+            service.deletePuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Any>{
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if(response.code() == 204){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+
+                }
+
+            })
+        }
+
+
+    }
+
 
 }
 

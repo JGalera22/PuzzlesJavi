@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.salesianostriana.g1_e1_realestate"
+        applicationId "com.naturesecurityvanguard.puzzles_Javi"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

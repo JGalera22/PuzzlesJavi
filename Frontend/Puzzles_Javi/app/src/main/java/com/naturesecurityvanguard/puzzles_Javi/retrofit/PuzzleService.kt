@@ -30,37 +30,8 @@ interface PuzzleService {
 
     @DELETE("puzzle/deseado/{id}")
     fun deletePuzzleDeseado(@Header("Authorization") token: String?, @Path("id") idPuzzle: Long) : Call<Any>
-/*
-    @GET("puzzle/deseado")
-    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?): Call<DetallePuzzle>
-*/
 
     @GET("puzzle/deseado")
-    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?,
-                      @Query("cat") paramCategoria : String?): Call<List<Puzzle>>
+    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?): Call<List<Puzzle>>
 
-
-
-
-    /*
-    @GET("viviendas/mine")
-    fun getMisViviendas(@Header("Authorization") token: String?) : Call<List<Puzzle>>
-
-    /*@POST("viviendas")
-    fun create(@Body nuevaVivienda: Vivienda) : Call<DetalleVivienda>*/
-
-    @GET("viviendas/favs")
-    fun getViviendasFavs(@Header("Authorization") token: String?) : Call<List<Vivienda>>
-
-    @GET("viviendas/{id}")
-    fun getDetalleMiVivienda(@Header("Authorization") token:String, @Path("id") paramId:Long):
-            Call<DetalleVivienda>
-
-/*
-    @POST("viviendas")
-    fun create(@Body nuevaVivienda: ViviendaRequest, @Header("Authorization Bearer: ") token: String) : Call<DetalleVivienda>
-    */
-
-
-*/
 }
