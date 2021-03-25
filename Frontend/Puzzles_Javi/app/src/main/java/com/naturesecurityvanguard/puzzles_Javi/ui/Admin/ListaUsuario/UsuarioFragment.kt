@@ -48,8 +48,6 @@ class UsuarioFragment : Fragment() {
         lista = view.findViewById(R.id.list_usuarios)
         val v = lista
 
-
-
         v.layoutManager = LinearLayoutManager(context)
         listAdapter = MyUsuarioRecyclerViewAdapter(activity as Context, viewModel, usuarioList)
         v.adapter = listAdapter

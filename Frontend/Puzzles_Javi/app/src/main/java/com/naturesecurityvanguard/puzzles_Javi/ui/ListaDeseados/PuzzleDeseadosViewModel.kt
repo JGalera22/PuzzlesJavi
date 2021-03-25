@@ -19,10 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PuzzleDeseadosViewModel(application: Application): AndroidViewModel(application) {
     private val _puzzlesDeseados = MutableLiveData<List<Puzzle>>()
     private val baseUrl = "http://10.0.2.2:9000/"
-
     private var service: PuzzleService
     var token: String?
-    var categoria: String?
+
 
 
     private val context = getApplication<Application>().applicationContext
@@ -35,7 +34,7 @@ class PuzzleDeseadosViewModel(application: Application): AndroidViewModel(applic
         _puzzlesDeseados.value = listOf()
         val sharedPref = context?.getSharedPreferences("FILE_PREFERENCES", Context.MODE_PRIVATE)
         token = sharedPref?.getString("token", "")
-        categoria = sharedPref?.getString("categoria", "")
+
 
         val client = OkHttpClient.Builder().addInterceptor { chain ->
             val newRequest = chain.request().newBuilder()
@@ -63,7 +62,7 @@ class PuzzleDeseadosViewModel(application: Application): AndroidViewModel(applic
 
     fun getListaPuzzlesDeseados() {
 
-        service.getPuzzleList("Bearer $token",categoria)
+        service.getListaPuzzlesDeseados("Bearer $token")
             .enqueue(object : Callback<List<Puzzle>> {
 
                 override fun onResponse(call: Call<List<Puzzle>>, response: Response<List<Puzzle>>) {

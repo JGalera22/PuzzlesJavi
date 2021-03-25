@@ -31,16 +31,6 @@ class MyListaPuzzlesDeseadosRecyclerViewAdapter(
         return ViewHolder(view)
     }
 
-
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val titleView: TextView = view.findViewById(R.id.text_view_precio)
-        val precioView: TextView = view.findViewById(R.id.text_view_precio)
-        val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
-        val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
-        val rootView: View = view.findViewById(R.id.usuario_view)
-    }
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
 
@@ -56,6 +46,15 @@ class MyListaPuzzlesDeseadosRecyclerViewAdapter(
             }
             activity.startActivity(intent)
         })
+    }
+
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleView: TextView = view.findViewById(R.id.text_view_titulo)
+        val precioView: TextView = view.findViewById(R.id.text_view_precio)
+        val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
+        val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
+        val rootView: View = view.findViewById(R.id.puzzle_deseado_view)
     }
 
     fun setData(newPuzzle: List<Puzzle>){

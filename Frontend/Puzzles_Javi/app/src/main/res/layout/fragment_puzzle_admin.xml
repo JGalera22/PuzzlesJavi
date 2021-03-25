@@ -27,7 +27,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/nombre_puzzle"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/image_view_foto"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,28 +38,28 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/precio_puzzle"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/image_view_foto"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_categoria" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_categoria_admin" />
 
     <TextView
-        android:id="@+id/text_view_categoria"
+        android:id="@+id/text_view_categoria_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/Categoria_puzzle"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/image_view_foto"
         app:layout_constraintTop_toBottomOf="@+id/text_view_titulo" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/image_categoria"
         android:layout_width="36dp"
         android:layout_height="34dp"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_precio"
-        app:layout_constraintStart_toEndOf="@+id/text_view_precio"
-        app:layout_constraintTop_toTopOf="@+id/text_view_precio"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_categoria_admin"
+        app:layout_constraintStart_toEndOf="@+id/text_view_categoria_admin"
+        app:layout_constraintTop_toTopOf="@+id/text_view_categoria_admin"
         tools:srcCompat="@drawable/ic_rompecabezas" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.naturesecurityvanguard.puzzles_Javi.ui.Admin.ListaUsuario
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.util.Log
@@ -21,8 +22,9 @@ class UsuarioViewModel (application: Application) : AndroidViewModel(application
     private val _usuario = MutableLiveData<List<UsuarioDetalleList>>()
     private val baseUrl = "http://10.0.2.2:9000/"
     private var service: UsuarioService
-
     var token: String?
+
+    @SuppressLint("StaticFieldLeak")
     private val context = getApplication<Application>().applicationContext
 
     val usuario: LiveData<List<UsuarioDetalleList>>
