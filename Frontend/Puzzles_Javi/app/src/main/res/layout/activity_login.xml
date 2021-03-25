@@ -12,7 +12,7 @@
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#FD9E02"
+        android:backgroundTint="@color/green"
         android:shadowColor="#4F95B2"
         android:text="Entrar como invitado"
         android:textColor="#FFFFFF"
@@ -78,7 +78,7 @@
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#4F95B2"
+        android:backgroundTint="@color/lightgreen"
         android:shadowColor="#4F95B2"
         android:text="Iniciar Sesión"
         android:textColor="#FFFFFF"
@@ -111,6 +111,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_jigsaw" />
+        app:srcCompat="@mipmap/puzzles_javi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

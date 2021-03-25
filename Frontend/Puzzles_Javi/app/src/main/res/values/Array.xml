@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="numero_piezas_array">
+        <item>todas</item>
+        <item>500 Piezas</item>
+        <item>1000 Piezas</item>
+        <item>2000 Piezas</item>
+        <item>3000 Piezas</item>
+        <item>4000 Piezas</item>
+        <item>6000 Piezas</item>
+        <item>8000 Piezas</item>
+    </string-array>
+</resources>

@@ -19,9 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PuzzleViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _puzzles = MutableLiveData<List<Puzzle>>()
-
     private val baseUrl = "http://10.0.2.2:9000/"
-
     private var service: PuzzleService
     var token: String?
     var categoria: String?
@@ -71,13 +69,15 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
             override fun onResponse(call: Call<List<Puzzle>>, response: Response<List<Puzzle>>) {
                 if (response.code() == 200){
                     _puzzles.value = response.body()
-                    Log.i("Puzles: ", _puzzles.value.toString())
+                    Log.i("Puzzles: ", _puzzles.value.toString())
 
                 }
                 if(response.code() == 404){
                     Toast.makeText(context, "No se ha encontrado ningun puzzle", Toast.LENGTH_SHORT).show()
 
                 }
+                Log.i("Response", response.code().toString())
+
             }
 
             override fun onFailure(call: Call<List<Puzzle>>, t: Throwable) {
@@ -85,6 +85,43 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
                 Log.e("Error!!!", t.message.toString())
             }
         })
+    }
+
+    fun createPuzzleDeseado(puzzleId: Long, deseado: Boolean) {
+
+        if(!deseado){
+            service.createPuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Puzzle>{
+
+                override fun onResponse(call: Call<Puzzle>, response: Response<Puzzle>) {
+                    if(response.code() == 201){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Puzzle>, t: Throwable) {
+
+                }
+
+            })
+        }
+        else{
+            service.deletePuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Any>{
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if(response.code() == 204){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+
+                }
+
+            })
+        }
+
+
     }
 
 

@@ -5,20 +5,16 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
+import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzle.DetallePuzzleActivity
 
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyPuzzleRecyclerViewAdapter(
         private val activity: Context,
         private val viewModel: PuzzleViewModel,
@@ -33,7 +29,7 @@ class MyPuzzleRecyclerViewAdapter(
 
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val titleView: TextView = view.findViewById(R.id.text_view_precio)
+        val titleView: TextView = view.findViewById(R.id.text_view_titulo)
         val precioView: TextView = view.findViewById(R.id.text_view_precio)
         val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
         val fotoView: ImageView = view.findViewById(R.id.image_view_foto)

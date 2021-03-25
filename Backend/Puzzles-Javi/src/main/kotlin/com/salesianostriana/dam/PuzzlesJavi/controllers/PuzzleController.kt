@@ -8,6 +8,7 @@ import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
 import com.salesianostriana.dam.PuzzlesJavi.error.DeseadoNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
+import com.salesianostriana.dam.PuzzlesJavi.services.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -15,9 +16,6 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.server.ResponseStatusException
-import com.salesianostriana.dam.PuzzlesJavi.services.ImagenPuzzleService
-import com.salesianostriana.dam.PuzzlesJavi.services.PuzzleService
-import com.salesianostriana.dam.PuzzlesJavi.services.UsuarioService
 import com.salesianostriana.dam.PuzzlesJavi.upload.ImgurBadRequest
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import java.util.*
@@ -36,6 +34,13 @@ class PuzzleController {
     @Autowired
     lateinit var usuarioService: UsuarioService
 
+    @Autowired
+    lateinit var pedidoService: PedidoService
+
+    @Autowired
+    lateinit var LineaDePedidoService: PedidoService
+
+
     //Lista de puzzles
     @GetMapping
     fun getAllPuzzles(
@@ -50,16 +55,6 @@ class PuzzleController {
     //Detalle de un puzzle
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): GetDetallePuzzleDto {
-        //var auth : String = SecurityContextHolder.getContext().authentication.name
-        //var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        /*if(usuario!!.isPresent){
-            return service.findById(id)
-                .map { it.toGetDetallePuzzleDto(usuario!!.get()) }
-                .orElseThrow {
-                    SingleEntityNotFoundException(id.toString(), Puzzle::class.java)
-                }
-        }
-        else{*/
             return service.findById(id)
                 .map { it.toGetDetallePuzzleDto() }
                 .orElseThrow {
@@ -93,8 +88,6 @@ class PuzzleController {
     //editar un puzzle
     @PutMapping("/{id}")
     fun edit(@Valid @RequestBody editarPuzzle: EditPuzzleDto, @PathVariable id: Long): GetDetallePuzzleDto {
-        /*var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)*/
         return service.findById(id)
             .map { puzzleEncontrado ->
                 puzzleEncontrado.nombre = editarPuzzle.nombre
@@ -103,7 +96,7 @@ class PuzzleController {
                 puzzleEncontrado.numeroPiezas = editarPuzzle.numeroPiezas
                 puzzleEncontrado.categoria = editarPuzzle.categoria
 
-                service.save(puzzleEncontrado).toGetDetallePuzzleDto(/*usuario!!.get()*/)
+                service.save(puzzleEncontrado).toGetDetallePuzzleDto()
             }
             .orElseThrow { SingleEntityNotFoundException(id.toString(), Puzzle::class.java) }
     }
@@ -167,9 +160,11 @@ class PuzzleController {
     fun addPuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
         var puzzle = service.findById(id).orElse(null)
         if (puzzle != null) {
-            service.getPuzzlesDeseados(usuario)
-            puzzle.usuariosDeseados.add(usuario)
-            service.save(puzzle)
+            println(puzzle.nombre)
+            println(usuario.username)
+            usuario.puzzlesDeseados.add(puzzle)
+            usuarioService.save(usuario)
+            println(usuario.puzzlesDeseados)
             return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
         } else {
             throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
@@ -180,13 +175,11 @@ class PuzzleController {
     }
 
     @DeleteMapping("/deseado/{id}")
-    fun deletePuzzleDeseado(@PathVariable id: Long): ResponseEntity<Any> {
-        var auth : String = SecurityContextHolder.getContext().authentication.name
-        var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        usuario!!.get().puzzlesDeseados.forEach { p ->
+    fun deletePuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+        usuario.puzzlesDeseados.forEach { p ->
             if (p.id == id) {
-                usuario!!.get().puzzlesDeseados.remove(p)
-                usuarioService.save(usuario!!.get())
+                usuario.puzzlesDeseados.remove(p)
+                usuarioService.save(usuario)
             }
         }
         return ResponseEntity.noContent().build()

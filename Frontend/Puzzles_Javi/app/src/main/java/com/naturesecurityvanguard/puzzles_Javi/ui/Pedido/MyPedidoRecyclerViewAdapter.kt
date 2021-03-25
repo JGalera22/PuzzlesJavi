@@ -1,42 +1,72 @@
 package com.naturesecurityvanguard.puzzles_Javi.ui.Pedido
 
+import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
+import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.LineaPedido
+import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Pedido
+import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
+import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity
+import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
+import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
-import com.naturesecurityvanguard.puzzles_Javi.ui.Pedido.dummy.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
 class MyPedidoRecyclerViewAdapter(
-    private val values: List<DummyItem>
+        private val activity: Context,
+        private val viewModel: PedidoViewModel,
+        private var values: List<LineaPedido>
 ) : RecyclerView.Adapter<MyPedidoRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_item3, parent, false)
+                .inflate(R.layout.fragment_linea_pedido, parent, false)
         return ViewHolder(view)
     }
 
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleView: TextView = view.findViewById(R.id.text_view_precio)
+        val precioView: TextView = view.findViewById(R.id.text_view_precio)
+        val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
+        val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
+        val rootView: View = view.findViewById(R.id.usuario_view)
+    }
+
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+
+        holder.titleView.text = " ${item.nombre}"
+        holder.categoriaView.text = "${item.categoria}"
+        holder.precioView.text = item.precio.toString()  + "€"
+        holder.fotoView.load(item.imagen)
+
+
+        holder.rootView.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, DetallePuzzleAdminActivity::class.java).apply {
+                putExtra("puzzleId", item.id)
+            }
+            activity.startActivity(intent)
+        })
+    }
+
+    fun setData(newPedido: List<LineaPedido>){
+        this.values = newPedido
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val idView: TextView = view.findViewById(R.id.item_number)
-        val contentView: TextView = view.findViewById(R.id.content)
 
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
-        }
-    }
 }

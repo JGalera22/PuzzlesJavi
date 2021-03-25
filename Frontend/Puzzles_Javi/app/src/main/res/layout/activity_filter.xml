@@ -7,28 +7,25 @@
     android:padding="20dp"
     tools:context=".ui.ListaPuzzles.FilterActivity">
 
-    <EditText
-        android:id="@+id/edit_categoria_filtro"
-        android:layout_width="0dp"
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/editCategoriaFiltro"
-        app:layout_constraintEnd_toEndOf="@+id/text_view_category_label"
-        app:layout_constraintStart_toStartOf="@+id/text_view_category_label"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_category_label" />
+        app:layout_constraintTop_toBottomOf="@+id/text_view_category_label"
+        tools:layout_editor_absoluteX="20dp" />
 
     <Button
         android:id="@+id/button_filtrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:backgroundTint="#4CAF50"
-        android:text="Ver Puzzless"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/lightgreen"
+        android:text="@string/Buscar_filtro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_categoria_filtro" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
         android:id="@+id/text_view_titulo_filtrado"

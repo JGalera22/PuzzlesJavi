@@ -34,6 +34,7 @@ class Usuario(
     val roles: MutableSet<String> = HashSet(),
 
     var fechaAlta: LocalDate = LocalDate.now(),
+
     var vip : Boolean = false,
 
     var activo: Boolean = true,
@@ -43,15 +44,14 @@ class Usuario(
     private val credentialIsNonExpired: Boolean = true,
 
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "Lista_deseados",
         joinColumns = [JoinColumn(name="usuario_id")],
         inverseJoinColumns = [JoinColumn(name="puzzle_id")]
     )
     var puzzlesDeseados: MutableList<Puzzle> = mutableListOf(),
 
-
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", fetch=FetchType.EAGER)
     var listaPedidos: MutableList<Pedido> = mutableListOf(),
 
 

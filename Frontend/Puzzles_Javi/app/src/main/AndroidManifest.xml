@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.naturesecurityvanguard.puzzles_Javi">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/puzzles_javi"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/puzzles_javi"
         android:supportsRtl="true"
         android:theme="@style/Theme.Puzzles_Javi">
-        <activity android:name=".ui.Admin.EditarUsuarioAdmin.EditarUsuarioAdminActivity"></activity>
+        <activity android:name=".ui.Admin.Main_Admin.AdminActivity" />
+        <activity android:name=".ui.Admin.EditarUsuarioAdmin.EditarUsuarioAdminActivity" />
         <activity android:name=".ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity" />
-        <activity android:name=".ui.Admin.EditarPuzzle.PuzzleEditarActivity" />
         <activity android:name=".ui.Admin.NuevoPuzzle.PuzzleNuevoActivity" />
-        <activity android:name=".ui.Admin.ListaUsuario.ListaUsuarioActivity" />
         <activity
             android:name=".ui.RespuestaPago.RespuestaPagoActivity"
-            android:label="@string/title_activity_respuesta_pago"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_respuesta_pago" />
         <activity
             android:name=".ui.Pago.PagoActivity"
-            android:label="@string/title_activity_pago"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_pago" />
         <activity
             android:name=".ui.EditarUsuario.EditarUsuarioActivity"
-            android:label="@string/title_activity_editar_usuario"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_editar_usuario" />
         <activity
             android:name=".ui.DetallePuzzleDeseado.DetallePuzzleDeseadoActivity"
-            android:label="@string/title_activity_detalle_puzzle_deseado"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_detalle_puzzle_deseado" />
         <activity
             android:name=".ui.DetallePuzzle.DetallePuzzleActivity"
-            android:label="@string/title_activity_detalle_puzzle"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_detalle_puzzle" />
         <activity
             android:name=".ui.Usuario.UsuarioActivity"
-            android:label="@string/title_activity_usuario"
-            android:theme="@style/Theme.Puzzles_Javi.NoActionBar" />
+            android:label="@string/title_activity_usuario" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".ui.registro.RegistroActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            tools:ignore="ExtraText">
             android:name=".ui.login.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -50,6 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ListaPuzzles.FilterActivity" />
     </application>
 
 </manifest>

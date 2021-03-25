@@ -9,7 +9,7 @@
 			"name": "Registro",
 			"item": [
 				{
-					"name": "Registro",
+					"name": "Registro Admin",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -18,7 +18,36 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"username\": \"lmlopez\",\r\n   \"passwd\": \"12345678\",\r\n   \"email\": \"luismi@email.com\",\r\n   \"nombreCompleto\": \"Luis Miguel López Magaña\",\r\n   \"admin\": true\r\n\r\n}",
+							"raw": "{\r\n   \"username\": \"lmlopez\",\r\n   \"passwd\": \"12345678\",\r\n   \"email\": \"luismi@email.com\",\r\n   \"nombreCompleto\": \"Luis Miguel López Magaña\",\r\n   \"admin\": true\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registro User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"username\": \"mcampos\",\r\n   \"passwd\": \"12345678\",\r\n   \"email\": \"miguel@email.com\",\r\n   \"nombreCompleto\": \"Miguel Campos\",\r\n   \"admin\": false\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -235,7 +264,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"nombre\": \"Puzzle Barco Pirata\",\r\n   \"descripcion\": \"Puzzle de 1000 Piezas\",\r\n   \"precio\": 25.00,\r\n   \"numeroPiezas\": 1000,\r\n   \"categoria\": \"1000 Piezas\"  \r\n}",
+							"raw": "{\r\n   \"nombre\": \"Fortaleza Pirata\",\r\n   \"descripcion\": \"Puzzle de 1000 Piezas\",\r\n   \"precio\": 25.00,\r\n   \"numeroPiezas\": 1000,\r\n   \"categoria\": \"1000 Piezas\"  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -307,6 +336,62 @@
 		{
 			"name": "Linea de Pedido",
 			"item": []
+		},
+		{
+			"name": "Imágenes",
+			"item": [
+				{
+					"name": "POST Crear imagen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/puzzles/2/img",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"puzzles",
+								"2",
+								"img"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Imagen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/files/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"files",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
@@ -314,7 +399,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjE2NDQ2MjEzLCJpYXQiOjE2MTYxODcwMTMsInJlZnJlc2giOmZhbHNlLCJub21icmVDb21wbGV0byI6Ikx1aXMgTWlndWVsIEzDs3BleiBNYWdhw7FhIiwicm9sZXMiOiJBRE1JTiJ9.DjdrkYONtNWHAbjkyUT8sxpSZuU9vQQh8FSPYJALmMFoyBZsBdLXT9qYX98nzFkfkuPWRD3S7BbIEeJ8aA210g",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjE2OTE5Mzg0LCJpYXQiOjE2MTY2NjAxODQsInJlZnJlc2giOmZhbHNlLCJub21icmVDb21wbGV0byI6Ikx1aXMgTWlndWVsIEzDs3BleiBNYWdhw7FhIiwicm9sZXMiOiJBRE1JTiJ9.8dHQltBrCjFjBKzfpHH17IrNJXxHv_2CHyDnNLK-UVxYDT726tKCe6w0RHZLiU-zacK46aHNTdu08M08HS_MJg",
 				"type": "string"
 			}
 		]

@@ -25,7 +25,7 @@ class Puzzle(
     var usuario: Usuario? = null,
 
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "Lista_deseados",
         joinColumns = [JoinColumn(name="puzzle_id")],
         inverseJoinColumns = [JoinColumn(name="usuario_id")]

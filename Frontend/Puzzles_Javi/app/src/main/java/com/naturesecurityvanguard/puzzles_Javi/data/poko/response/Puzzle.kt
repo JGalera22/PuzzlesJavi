@@ -5,5 +5,6 @@ data class Puzzle(
         val categoria: String,
         val precio: Double,
         val imagen: String,
+        val deseado: Boolean,
         val id: Long,
 )

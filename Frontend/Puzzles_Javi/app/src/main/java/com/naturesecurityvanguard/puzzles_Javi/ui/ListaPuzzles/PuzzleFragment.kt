@@ -26,7 +26,6 @@ class PuzzleFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -44,9 +43,9 @@ class PuzzleFragment : Fragment() {
 
 
         viewModel.puzzle.observe(viewLifecycleOwner, Observer {
-            viviendas -> puzzleList = viviendas
-            Log.i("Viviendaaaas: ", puzzleList.toString())
-            listAdapter.setData(viviendas)
+            puzzles -> puzzleList = puzzles
+            Log.i("puzzles Home: ", puzzleList.toString())
+            listAdapter.setData(puzzles)
         })
 
         return view

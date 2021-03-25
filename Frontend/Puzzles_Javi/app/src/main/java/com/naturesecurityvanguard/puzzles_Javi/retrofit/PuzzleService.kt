@@ -8,51 +8,29 @@ import retrofit2.http.*
 
 interface PuzzleService {
 
-
-    @GET("puzzle")
+    @GET("puzzles")
     fun getPuzzleList(@Header("Authorization") token: String?,
                         @Query("cat") paramCategoria : String?): Call<List<Puzzle>>
 
-    @GET("puzzle/{id}")
+    @GET("puzzles/{id}")
     fun getDetallePuzzle(@Path("id") paramid: Long): Call<DetallePuzzle>
 
-    @POST("puzzle")
-    fun create(@Body nuevaVivienda: PuzzleRequest, @Header("Authorization") token: String) : Call<DetallePuzzle>
+    @POST("puzzles")
+    fun create(@Body nuevoPuzzle: PuzzleRequest, @Header("Authorization") token: String) : Call<DetallePuzzle>
 
-    @DELETE("puzzle/{id}")
+    @DELETE("puzzles/{id}")
     fun deletePuzzle(@Header("Authorization") token: String?, @Path("id") paramId: Long): Call<Any>
 
-    @PUT("puzzle/{id}")
+    @PUT("puzzles/{id}")
     fun updatePuzzle(@Body editPuzzleRequest: PuzzleRequest, @Header("Authorization") token: String, @Path("id") paramId:Long): Call<DetallePuzzle>
 
-    @POST("puzzle/deseado/{id}")
+    @POST("puzzles/deseado/{id}")
     fun createPuzzleDeseado(@Header("Authorization") token: String?, @Path("id") idPuzzle: Long) : Call<Puzzle>
 
-    @DELETE("puzzle/deseado/{id}")
+    @DELETE("puzzles/deseado/{id}")
     fun deletePuzzleDeseado(@Header("Authorization") token: String?, @Path("id") idPuzzle: Long) : Call<Any>
 
+    @GET("puzzles/deseado")
+    fun getListaPuzzlesDeseados(@Header("Authorization")token: String?): Call<List<Puzzle>>
 
-
-
-    /*
-    @GET("viviendas/mine")
-    fun getMisViviendas(@Header("Authorization") token: String?) : Call<List<Puzzle>>
-
-    /*@POST("viviendas")
-    fun create(@Body nuevaVivienda: Vivienda) : Call<DetalleVivienda>*/
-
-    @GET("viviendas/favs")
-    fun getViviendasFavs(@Header("Authorization") token: String?) : Call<List<Vivienda>>
-
-    @GET("viviendas/{id}")
-    fun getDetalleMiVivienda(@Header("Authorization") token:String, @Path("id") paramId:Long):
-            Call<DetalleVivienda>
-
-/*
-    @POST("viviendas")
-    fun create(@Body nuevaVivienda: ViviendaRequest, @Header("Authorization Bearer: ") token: String) : Call<DetalleVivienda>
-    */
-
-
-*/
 }

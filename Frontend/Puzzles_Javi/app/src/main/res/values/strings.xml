@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Puzzles_Javi</string>
+    <string name="app_name">Puzzles Javi</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -24,19 +24,15 @@
     <string name="usernameNotLogin">Username</string>
     <string name="password">Password</string>
 
-    <!--
-    <string name="usernameNotLogin">Username</string>
+
     <string name="PsswrdNotLogin">Password</string>
     <string name="usernameRegistro">Username</string>
     <string name="passwordRegistro">Password</string>
     <string name="emailRegistro">Email</string>
     <string name="nombreCompletoRegistro">Nombre Completo</string>
     <string name="enviarRegistro">Enviar</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
     <string name="goLogin">¿Ya tienes cuenta? Inicia sesión aquí</string>
-    <string name="token">Token</string>
-    -->
+
 
     <!-- Detalles Puzzle -->
     <string name="tituloDetalle">Nombre Artículo</string>
@@ -51,7 +47,6 @@
     <string name="email">javi@email.com</string>
 
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="categoriaFiltro">Categoría</string>
@@ -63,6 +58,13 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+    <string name="titulo">Nombre Puzzle</string>
+    <string name="descripcion">Descripción</string>
+    <string name="precio">Precio</string>
+    <string name="numPiezas">Num Piezas</string>
+    <string name="categoria">Categoría</string>
+    <string name="btnGuardar">Guardar</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -78,4 +80,12 @@
     <string name="precio_puzzle">Precio €</string>
     <string name="nombre_puzzle">Nombre Puzzle</string>
     <string name="Categoria_puzzle">Categoría</string>
+    <string name="textView_subtotal">Subtotal: 100.00€</string>
+    <string name="Buscar_filtro">Buscar</string>
+    <string name="title_house">home</string>
+    <string name="title_deseado">ListaDeseados</string>
+    <string name="title_pedidos">pedidos</string>
+    <string name="title_house_admin">Admin Home</string>
+    <string name="title_usuarios">Usuarios</string>
+    <string name="compra">El dinero será abonado en tienda</string>
 </resources>

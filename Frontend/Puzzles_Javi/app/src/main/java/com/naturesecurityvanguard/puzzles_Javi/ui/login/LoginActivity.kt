@@ -45,7 +45,7 @@ class LoginActivity() : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
-        btnLogin = findViewById(R.id.button_añadir_deseados)
+        btnLogin = findViewById(R.id.button_login)
         btnInvitado = findViewById(R.id.button_invitado)
         editTextUsername = findViewById(R.id.username)
         editTextPass = findViewById(R.id.password)
@@ -116,9 +116,9 @@ class LoginActivity() : AppCompatActivity() {
 
                     Toast.makeText(context, "Login incorrecto", Toast.LENGTH_SHORT).show()
 
-                    Log.i("MIGUEL", "Login incorrecto")
+                    Log.i("Login", "Login incorrecto")
 
-                    Log.i("Despacito", response.code().toString())
+                    Log.i("Login2", response.code().toString())
 
                 }
             }

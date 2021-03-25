@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_puzzle_admin"
+        android:icon="@drawable/ic_enchufar"
+        android:title="@string/title_house_admin" />
+
+    <item
+        android:id="@+id/navigation_usuarios_admin"
+        android:icon="@drawable/ic_person_24px"
+        android:title="@string/title_usuarios" />
+
+</menu>
