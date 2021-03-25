@@ -29,3 +29,11 @@ INSERT INTO puzzles(nombre, descripcion, precio,  numeroPiezas, categoria, id) V
 INSERT INTO puzzles(nombre, descripcion, precio,  numeroPiezas, categoria, id) VALUES('Barco', 'Puzzle de 4000 Piezas',23.00, 4000 , "4000 Piezas", NEXTVAL('hibernate_sequence'));
 INSERT INTO puzzles(nombre, descripcion, precio,  numeroPiezas, categoria, id) VALUES('Bosque', 'Puzzle de 6000 Piezas',25.00, 6000 , "6000 Piezas", NEXTVAL('hibernate_sequence'));
 INSERT INTO puzzles(nombre, descripcion, precio,  numeroPiezas, categoria, id) VALUES('Selva', 'Puzzle de 8000 Piezas',35.00, 8000 , "8000 Piezas", NEXTVAL('hibernate_sequence'));
+
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'zi3AIuX', 'Oo55EkuFayvfLf0',23);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'siFBvVd', 'Vga32C9yMrchIzt',24);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'ypp9kSE', 'UqZ2l3c4hs6HW1v',25);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'HucINH1', 'FuzGKB27RDdSWmH',26);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'zi3AIuX', 'Oo55EkuFayvfLf0',27);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'siFBvVd', 'Vga32C9yMrchIzt',28);
+insert into imagen_puzzle(id, data_id, delete_hash, vivienda_id) values (NEXTVAL('hibernate_sequence'), 'ypp9kSE', 'UqZ2l3c4hs6HW1v',29);
