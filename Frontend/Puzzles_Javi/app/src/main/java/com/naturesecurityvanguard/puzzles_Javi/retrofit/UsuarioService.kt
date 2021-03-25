@@ -14,7 +14,7 @@ interface UsuarioService {
     @GET("auth/user/me")
     fun getUser(@Header("Authorization")token: String?): Call<UsuarioRegistroResponse>
 
-    @GET("/user")
+    @GET("/usuario")
     fun getAllUser(@Header("Authorization")token: String?): Call<List<UsuarioDetalleList>>
 
 

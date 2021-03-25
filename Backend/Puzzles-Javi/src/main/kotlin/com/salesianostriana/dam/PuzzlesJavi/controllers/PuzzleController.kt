@@ -55,16 +55,6 @@ class PuzzleController {
     //Detalle de un puzzle
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): GetDetallePuzzleDto {
-        //var auth : String = SecurityContextHolder.getContext().authentication.name
-        //var usuario : Optional<Usuario>? = usuarioService.findByUsername(auth)
-        /*if(usuario!!.isPresent){
-            return service.findById(id)
-                .map { it.toGetDetallePuzzleDto(usuario!!.get()) }
-                .orElseThrow {
-                    SingleEntityNotFoundException(id.toString(), Puzzle::class.java)
-                }
-        }
-        else{*/
             return service.findById(id)
                 .map { it.toGetDetallePuzzleDto() }
                 .orElseThrow {
@@ -106,7 +96,7 @@ class PuzzleController {
                 puzzleEncontrado.numeroPiezas = editarPuzzle.numeroPiezas
                 puzzleEncontrado.categoria = editarPuzzle.categoria
 
-                service.save(puzzleEncontrado).toGetDetallePuzzleDto(/*usuario!!.get()*/)
+                service.save(puzzleEncontrado).toGetDetallePuzzleDto()
             }
             .orElseThrow { SingleEntityNotFoundException(id.toString(), Puzzle::class.java) }
     }

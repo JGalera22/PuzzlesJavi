@@ -116,9 +116,9 @@ class LoginActivity() : AppCompatActivity() {
 
                     Toast.makeText(context, "Login incorrecto", Toast.LENGTH_SHORT).show()
 
-                    Log.i("MIGUEL", "Login incorrecto")
+                    Log.i("Login", "Login incorrecto")
 
-                    Log.i("Despacito", response.code().toString())
+                    Log.i("Login2", response.code().toString())
 
                 }
             }

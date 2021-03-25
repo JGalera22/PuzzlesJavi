@@ -87,4 +87,5 @@
     <string name="title_pedidos">pedidos</string>
     <string name="title_house_admin">Admin Home</string>
     <string name="title_usuarios">Usuarios</string>
+    <string name="compra">El dinero será abonado en tienda</string>
 </resources>
