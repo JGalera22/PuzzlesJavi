@@ -2,11 +2,15 @@ package com.salesianostriana.dam.PuzzlesJavi.entities
 
 import java.time.LocalDate
 import javax.persistence.*
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotNull
 
 @Entity
 class Pedido(
-
+    @get:NotNull(message="{pedido.fechaPedido.null}")
     var fechaPedido: LocalDate = LocalDate.now(),
+    @get:NotNull(message="{pedido.total.null}")
+    @get:Min(0, message = "{pedido.total.min}")
     var total: Long,
 
     @ManyToOne
