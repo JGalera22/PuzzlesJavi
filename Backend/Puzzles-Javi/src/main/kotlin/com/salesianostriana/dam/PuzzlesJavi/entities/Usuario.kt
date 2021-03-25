@@ -34,6 +34,7 @@ class Usuario(
     val roles: MutableSet<String> = HashSet(),
 
     var fechaAlta: LocalDate = LocalDate.now(),
+
     var vip : Boolean = false,
 
     var activo: Boolean = true,

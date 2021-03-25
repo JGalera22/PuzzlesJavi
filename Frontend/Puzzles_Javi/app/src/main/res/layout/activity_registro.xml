@@ -9,14 +9,14 @@
 
     <ImageView
         android:id="@+id/image_view_logo"
-        android:layout_width="145dp"
-        android:layout_height="110dp"
+        android:layout_width="171dp"
+        android:layout_height="142dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/ic_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_jigsaw" />
+        app:srcCompat="@mipmap/puzzles_javi" />
 
     <EditText
         android:id="@+id/edit_text_username"

@@ -111,6 +111,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_jigsaw" />
+        app:srcCompat="@mipmap/puzzles_javi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

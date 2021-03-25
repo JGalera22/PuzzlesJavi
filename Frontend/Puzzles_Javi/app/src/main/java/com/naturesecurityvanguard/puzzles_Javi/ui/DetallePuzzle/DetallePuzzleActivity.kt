@@ -73,6 +73,11 @@ class DetallePuzzleActivity : AppCompatActivity() {
             createPuzzleDeseado(puzzleId!!.toLong(), deseado)
         })
 
+        btn2.setOnClickListener(View.OnClickListener {
+            var intent = Intent(this, MainActivity::class.java)
+            this.startActivity(intent)
+        })
+
     }
 
     fun cambiarTitulo(titulo: String?) {

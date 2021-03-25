@@ -1,6 +1,7 @@
 package com.naturesecurityvanguard.puzzles_Javi.ui.DetallePuzzleDeseado
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import coil.load
+import com.naturesecurityvanguard.puzzles_Javi.MainActivity
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.DetallePuzzle
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
@@ -67,6 +69,11 @@ class DetallePuzzleDeseadoActivity : AppCompatActivity() {
         imageView = findViewById(R.id.imageView_foto_principal)
         btn = findViewById(R.id.button_comprar)
         btn2 = findViewById(R.id.button_eliminar_deseados)
+
+        btn.setOnClickListener(View.OnClickListener {
+            var intent = Intent(this, MainActivity::class.java)
+            this.startActivity(intent)
+        })
 
         btn2.setOnClickListener(View.OnClickListener {
             createPuzzleDeseado(puzzleId!!.toLong(), deseado)

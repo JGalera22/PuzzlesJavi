@@ -33,7 +33,6 @@ class MyPuzzleRecyclerViewAdapter(
         val precioView: TextView = view.findViewById(R.id.text_view_precio)
         val categoriaView: TextView = view.findViewById(R.id.text_view_categoria)
         val fotoView: ImageView = view.findViewById(R.id.image_view_foto)
-        //val imageCategoriaView: ImageView = view.findViewById(R.id.image_categoria)
         val rootView: View = view.findViewById(R.id.puzzle_view)
     }
 
@@ -44,7 +43,6 @@ class MyPuzzleRecyclerViewAdapter(
         holder.titleView.text = " ${item.nombre}"
         holder.categoriaView.text = "${item.categoria}"
         holder.precioView.text = item.precio.toString()  + "€"
-        //holder.categoriaView.
         holder.fotoView.load(item.imagen)
 
 
