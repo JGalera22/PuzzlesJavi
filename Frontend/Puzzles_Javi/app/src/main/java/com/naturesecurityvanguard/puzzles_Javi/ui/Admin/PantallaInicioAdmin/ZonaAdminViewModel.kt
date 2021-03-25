@@ -18,9 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ZonaAdminViewModel(application: Application) : AndroidViewModel(application) {
     private val _puzzles = MutableLiveData<List<Puzzle>>()
-
     private val baseUrl = "http://10.0.2.2:9000/"
-
     private var service: PuzzleService
     var token: String?
     var categoria: String?
@@ -54,7 +52,6 @@ class ZonaAdminViewModel(application: Application) : AndroidViewModel(applicatio
             .build()
 
         service = retrofit.create(PuzzleService::class.java)
-
 
         getPuzzleList()
 
