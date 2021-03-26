@@ -1,3 +1,4 @@
+
 INSERT INTO USUARIO(email, nombre_completo, passwd, username, activo, credential_is_non_expired, non_expired, non_locked, vip,fecha_alta, admin, id) VALUES('miguel@email.com', 'Miguel Campos Rivera','12345678','mcampos',true, true, true, true, false, false, CURRENT_DATE, NEXTVAL('hibernate_sequence'));
 INSERT INTO USUARIO(email, nombre_completo, passwd, username, activo, credential_is_non_expired, non_expired, non_locked, vip,fecha_alta, admin, id) VALUES('fernandezhernandez@email.com', 'Antonio Fernández Hernández','12345678','antoniofernandez',true, true,true, true,false, false, CURRENT_DATE, NEXTVAL('hibernate_sequence'));
 INSERT INTO USUARIO(email, nombre_completo, passwd, username, activo, credential_is_non_expired, non_expired, non_locked, vip,fecha_alta, admin, id) VALUES('ruizgarcia@email.com', 'Francisca Ruiz García','12345678','franciscaruiz',true, true,true, true,false, false, CURRENT_DATE, NEXTVAL('hibernate_sequence'));
