@@ -124,7 +124,7 @@ class LoginActivity() : AppCompatActivity() {
             }
 
             override fun onFailure(call: retrofit2.Call<LoginResponse>, t: Throwable) {
-                Log.i("MIGUEL", t.message.toString())
+                Log.i("Error", t.message.toString())
 
             }
         })

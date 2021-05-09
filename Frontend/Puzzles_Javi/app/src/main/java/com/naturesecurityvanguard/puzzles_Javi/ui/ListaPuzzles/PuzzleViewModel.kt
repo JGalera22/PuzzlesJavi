@@ -24,7 +24,6 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
     var token: String?
     var categoria: String?
 
-
     private val context = getApplication<Application>().applicationContext
 
     val puzzle: LiveData<List<Puzzle>>
@@ -65,23 +64,17 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
 
         service.getPuzzleList("Bearer $token",categoria)
                 .enqueue(object : Callback<List<Puzzle>> {
-
             override fun onResponse(call: Call<List<Puzzle>>, response: Response<List<Puzzle>>) {
                 if (response.code() == 200){
                     _puzzles.value = response.body()
                     Log.i("Puzzles: ", _puzzles.value.toString())
-
                 }
                 if(response.code() == 404){
                     Toast.makeText(context, "No se ha encontrado ningun puzzle", Toast.LENGTH_SHORT).show()
-
                 }
                 Log.i("Response", response.code().toString())
-
             }
-
             override fun onFailure(call: Call<List<Puzzle>>, t: Throwable) {
-
                 Log.e("Error!!!", t.message.toString())
             }
         })
