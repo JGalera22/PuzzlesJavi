@@ -11,13 +11,13 @@
 --INSERT INTO USUARIO(email, nombre_completo, passwd, username, activo, credential_is_non_expired, non_expired, non_locked, vip,fecha_alta, admin, id) VALUES('garciadiaz@email.com', 'Ana García Díaz','12345678','anagarcia', true,true, true, true, false, true CURRENT_DATE,NEXTVAL('hibernate_sequence'));
 --INSERT INTO USUARIO(email, nombre_completo, passwd, username, activo, credential_is_non_expired, non_expired, non_locked, vip,fecha_alta, admin, id) VALUES('lopezgarcia@email.com', 'María Teresa López García','12345678','maríateresalopez', true,true,true, true,false, true, CURRENT_DATE, NEXTVAL('hibernate_sequence'));
 INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, false, true, 'lopezgarcia@email.com', CURRENT_DATE, 'María Teresa López García', true, true, '12345678', 'maríateresalopez', false,  NEXTVAL('hibernate_sequence'));
-INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, false, true, 'garciadiaz@email.com', CURRENT_DATE, 'Ana García Díaz', true, true, '12345678', 'anagarcia', false,  NEXTVAL('hibernate_sequence'));
+INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, true, true, 'garciadiaz@email.com', CURRENT_DATE, 'Ana García Díaz', true, true, '12345678', 'anagarcia', false,  NEXTVAL('hibernate_sequence'));
 INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, false, true, 'vazquezmarin@email.com', CURRENT_DATE, 'María Ángeles Vázquez Marín', true, true, '12345678', 'maríaángelesvazquez', false,  NEXTVAL('hibernate_sequence'));
 
 
 INSERT INTO usuario_roles (usuario_id, roles) VALUES(1, 'USER');
-INSERT INTO usuario_roles (usuario_id, roles) VALUES(2, 'USER');
-INSERT INTO usuario_roles (usuario_id, roles) VALUES(3, 'ADMIN');
+INSERT INTO usuario_roles (usuario_id, roles) VALUES(2, 'ADMIN');
+INSERT INTO usuario_roles (usuario_id, roles) VALUES(3, 'USER');
 --INSERT INTO usuario_roles (usuario_id, roles) VALUES(4, 'USER');
 --INSERT INTO usuario_roles (usuario_id, roles) VALUES(5, 'USER');
 --INSERT INTO usuario_roles (usuario_id, roles) VALUES(6, 'USER');

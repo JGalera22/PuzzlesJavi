@@ -58,7 +58,7 @@ class UsuarioViewModel (application: Application) : AndroidViewModel(application
 
     }
 
-
+/*
     fun getAllUser() {
         service.getAllUser("Bearer $token")
         .enqueue(object : Callback<List<UsuarioDetalleList>> {
@@ -79,6 +79,28 @@ class UsuarioViewModel (application: Application) : AndroidViewModel(application
                     Log.e("Error!!!", t.message.toString())
                 }
             })
+    }
+    */
+
+
+    fun getAllUser() {
+
+        service.getAllUser("Bearer $token")
+                .enqueue(object : Callback<List<UsuarioDetalleList>> {
+                    override fun onResponse(call: Call<List<UsuarioDetalleList>>, response: Response<List<UsuarioDetalleList>>) {
+                        if (response.code() == 200){
+                            _usuario.value = response.body()
+                            Log.i("Usuarioss: ", _usuario.value.toString())
+                        }
+                        if(response.code() == 404){
+                            Toast.makeText(context, "No se ha encontrado ningun usuario", Toast.LENGTH_SHORT).show()
+                        }
+                        Log.i("Response", response.code().toString())
+                    }
+                    override fun onFailure(call: Call<List<UsuarioDetalleList>>, t: Throwable) {
+                        Log.e("Error!!!", t.message.toString())
+                    }
+                })
     }
 
 
