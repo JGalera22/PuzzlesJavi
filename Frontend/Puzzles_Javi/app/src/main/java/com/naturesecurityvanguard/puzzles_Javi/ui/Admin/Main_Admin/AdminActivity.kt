@@ -12,7 +12,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.naturesecurityvanguard.puzzles_Javi.MainActivity
 import com.naturesecurityvanguard.puzzles_Javi.R
+import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.PantallaInicioAdmin.FilterActivityAdmin
 import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.FilterActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.login.LoginActivity
 
@@ -53,8 +55,13 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 override fun onOptionsItemSelected(item: MenuItem): Boolean {
     // Handle item selection
     return when (item.itemId) {
-        R.id.action_filter -> {
-            val intent = Intent(this, FilterActivity::class.java)
+        R.id.action_admin -> {
+            val intent = Intent(this, MainActivity::class.java)
+            this.startActivity(intent)
+            true
+        }
+        R.id.action_filter_admin -> {
+            val intent = Intent(this, FilterActivityAdmin::class.java)
             this.startActivity(intent)
             true
         }

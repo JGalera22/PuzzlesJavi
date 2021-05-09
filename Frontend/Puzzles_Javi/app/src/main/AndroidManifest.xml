@@ -50,6 +50,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ListaPuzzles.FilterActivity" />
+        <activity android:name=".ui.Admin.PantallaInicioAdmin.FilterActivityAdmin" />
     </application>
 
 </manifest>

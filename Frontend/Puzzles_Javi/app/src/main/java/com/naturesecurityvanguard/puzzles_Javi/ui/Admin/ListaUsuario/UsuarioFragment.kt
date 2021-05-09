@@ -30,8 +30,8 @@ class UsuarioFragment : Fragment() {
     var usuarioList: List<UsuarioDetalleList> = listOf()
     lateinit var listAdapter: MyUsuarioRecyclerViewAdapter
     lateinit var viewModel: UsuarioViewModel
-    lateinit var lista: RecyclerView
-
+    //lateinit var lista: RecyclerView
+    /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -66,6 +66,33 @@ class UsuarioFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.getAllUser()
+    }
+    */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_usuario_list, container, false)
+
+        viewModel = ViewModelProvider(this).get(UsuarioViewModel::class.java)
+        // Set the adapter
+        val v = view as RecyclerView
+        v.layoutManager = LinearLayoutManager(context)
+        listAdapter = MyUsuarioRecyclerViewAdapter(activity as Context, viewModel, usuarioList)
+        v.adapter = listAdapter
+
+
+        viewModel.usuario.observe(viewLifecycleOwner, Observer {
+            usuarios -> usuarioList = usuarios
+            Log.i("usuarios: ", usuarioList.toString())
+            listAdapter.setData(usuarios)
+        })
+
+        return view
     }
 }
 

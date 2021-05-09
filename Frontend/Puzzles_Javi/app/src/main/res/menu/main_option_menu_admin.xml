@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:title="Admin"
+        android:id="@+id/action_admin"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_profile_user" />
+
     <item android:title="Filtrado"
-        android:id="@+id/action_filter"
+        android:id="@+id/action_filter_admin"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_filter_list_24" />
 
