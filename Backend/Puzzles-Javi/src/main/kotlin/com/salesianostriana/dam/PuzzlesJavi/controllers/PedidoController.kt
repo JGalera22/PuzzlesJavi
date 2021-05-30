@@ -39,4 +39,6 @@ class PedidoController {
                 .map { it.toGetPedidoDetalleDto(usuario) }
                 .orElseThrow {SingleEntityNotFoundException(id.toString(), Pedido::class.java)}
     }
+
+
 }

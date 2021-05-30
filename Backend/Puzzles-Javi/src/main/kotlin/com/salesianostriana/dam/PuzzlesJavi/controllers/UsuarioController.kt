@@ -56,7 +56,6 @@ class UsuarioController {
                 usuarioEncontrado.passwd = editarUsuario.passwd
                 usuarioEncontrado.email = editarUsuario.email
                 usuarioEncontrado.nombreCompleto = editarUsuario.nombreCompleto
-                //usuarioEncontrado.roles = editarUsuario.roles
 
                 service.save(usuarioEncontrado).toGetUsuarioPerfilDto()
             }

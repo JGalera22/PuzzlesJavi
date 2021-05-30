@@ -17,11 +17,6 @@ import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.Detal
 import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
 import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
-
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyPedidoRecyclerViewAdapter(
         private val activity: Context,
         private val viewModel: PedidoViewModel,

@@ -117,9 +117,10 @@ class DetallePuzzleDeseadoActivity : AppCompatActivity() {
     }
 
     fun createPuzzleDeseado(puzzleId: Long, deseado: Boolean) {
-
+        Log.e("Deseado: ", deseado.toString())
         if(!deseado){
             btn2.setText("Añadir a Deseados")
+            Log.e("Deseado create: ", deseado.toString())
             service.createPuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Puzzle>{
 
                 override fun onResponse(call: Call<Puzzle>, response: Response<Puzzle>) {
@@ -137,6 +138,7 @@ class DetallePuzzleDeseadoActivity : AppCompatActivity() {
         }
         else{
             btn2.setText("Eliminar de Deseados")
+            Log.e("Deseado delete: ", deseado.toString())
             service.deletePuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Any>{
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
                     if(response.code() == 204){

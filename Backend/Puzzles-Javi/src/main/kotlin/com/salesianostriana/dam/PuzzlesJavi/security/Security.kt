@@ -79,7 +79,7 @@ class WebSecurityConfiguration(
             .antMatchers(HttpMethod.POST, "/puzzle", "/puzzle/deseado/{id}", "/puzzle/{id}/img").hasRole("ADMIN")
             .antMatchers(HttpMethod.PUT, "/puzzle/{id}").hasRole("ADMIN")
             .antMatchers(HttpMethod.DELETE, "/puzzle/{id}", "/puzzle/deseado/{id}", "/puzzle/{id}/img/{hash}").hasRole("ADMIN")
-            .antMatchers(HttpMethod.GET, "/usuario", "/usuario/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.GET, "/usuario", "/usuario/{id}, puzzle/admin").hasRole("ADMIN")
             .antMatchers(HttpMethod.PUT, "/usuario/{id}").hasRole("ADMIN")
             .antMatchers(HttpMethod.DELETE, "usuario/{id}").hasRole("ADMIN")
 

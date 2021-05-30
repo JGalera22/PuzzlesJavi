@@ -37,23 +37,20 @@ class LineaPedidoController {
             .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(LineaDePedido::class.java)
     }
 
-    //Añadir a linea de pedido
-    @PostMapping("/lineaPedido/{id}")
-    fun addPuzzleALineaPedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetLineaDePedidoDto> {
-        var lineaDePedido = service.findById(id).orElse(null)
-        if (lineaDePedido != null) {
-            service.getPuzzlesPedido(usuario)
-            //lineaDePedido.pedido.add(usuario)
-            service.save(lineaDePedido)
-            return ResponseEntity.status(HttpStatus.CREATED).body(lineaDePedido.toGetLineaDePedidoDto(usuario))
-        } else {
-            throw SingleEntityNotFoundException(id.toString(), lineaDePedido::class.java)
-        }
-
-
-
-    }
-
+//    //Añadir a linea de pedido
+//    @PostMapping("/lineaPedido/{id}")
+//    fun addPuzzleALineaPedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetLineaDePedidoDto> {
+//        var lineaDePedido = service.findById(id).orElse(null)
+//        var puzzle = service.findById(id).orElse(null)
+//        if (puzzle != null) {
+//            service.getPuzzlesPedido(usuario)
+//            //lineaDePedido.pedido.add(usuario)
+//            service.save(puzzle)
+//            return ResponseEntity.status(HttpStatus.CREATED).body(lineaDePedido.toGetLineaDePedidoDto(usuario))
+//        } else {
+//            throw SingleEntityNotFoundException(id.toString(), lineaDePedido::class.java)
+//        }
+//    }
 
     @DeleteMapping("/lineaPedido/{id}")
     fun deletePuzzleLineaPedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {

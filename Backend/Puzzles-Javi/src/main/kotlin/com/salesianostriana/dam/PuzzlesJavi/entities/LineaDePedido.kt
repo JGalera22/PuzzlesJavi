@@ -21,6 +21,8 @@ class LineaDePedido(
 
     @Id @GeneratedValue val id : Long? = null
 
+
+
 ){
 
     override fun equals(other: Any?): Boolean {

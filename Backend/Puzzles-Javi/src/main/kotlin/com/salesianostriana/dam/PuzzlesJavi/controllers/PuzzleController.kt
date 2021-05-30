@@ -22,7 +22,7 @@ import java.util.*
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("/puzzles")
+@RequestMapping("/puzzle")
 class PuzzleController {
 
     @Autowired
@@ -50,6 +50,17 @@ class PuzzleController {
             : List<GetPuzzleDto> {
             return service.getPuzzleFiltrados(categoria)?.map { it.toGetPuzzleDto(null) }
                 .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Puzzle::class.java)
+    }
+
+    //Lista de puzzles
+    @GetMapping("/admin")
+    fun getAllPuzzlesAdmin(
+        @RequestParam(name = "cat", required = false, defaultValue = "todas") categoria: String,
+
+        )
+            : List<GetPuzzleDto> {
+        return service.getPuzzleFiltrados(categoria)?.map { it.toGetPuzzleDto(null) }
+            .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Puzzle::class.java)
     }
 
     //Detalle de un puzzle
@@ -149,7 +160,6 @@ class PuzzleController {
     //Lista de deseados
     @GetMapping("/deseado")
     fun getDeseados(@AuthenticationPrincipal usuario: Usuario): List<GetPuzzleDto> {
-        print(service.getPuzzlesDeseados(usuario))
         return service.getPuzzlesDeseados(usuario)
             .map { it.toGetPuzzleDto(usuario) }
             .takeIf { it.isNotEmpty() } ?: throw DeseadoNotFoundException(Puzzle::class.java)
@@ -160,11 +170,8 @@ class PuzzleController {
     fun addPuzzleDeseado(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
         var puzzle = service.findById(id).orElse(null)
         if (puzzle != null) {
-            println(puzzle.nombre)
-            println(usuario.username)
             usuario.puzzlesDeseados.add(puzzle)
             usuarioService.save(usuario)
-            println(usuario.puzzlesDeseados)
             return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
         } else {
             throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
