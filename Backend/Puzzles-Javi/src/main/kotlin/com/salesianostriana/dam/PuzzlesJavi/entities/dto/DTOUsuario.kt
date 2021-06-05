@@ -1,7 +1,5 @@
 package com.salesianostriana.dam.PuzzlesJavi.entities.dto
 
-import com.salesianostriana.dam.PuzzlesJavi.entities.LineaDePedido
-import com.salesianostriana.dam.PuzzlesJavi.entities.Pedido
 import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 import java.time.LocalDate
 import javax.persistence.Column
@@ -68,7 +66,7 @@ fun Usuario.toGetUsuarioPerfilDto(): GetUsuarioPerfilDto{
     var listaPedidos: MutableList<GetPedidoDto> = mutableListOf()
     val pedido: List<GetPedidoDto> = listOf()
     pedido!!.forEach { i ->
-        listaPedidos.add(GetPedidoDto(i.id, i.fechaPedido, i.total))
+        listaPedidos.add(GetPedidoDto(i.id, i.fechaPedido/*, i.total*/))
     }
     return GetUsuarioPerfilDto(username, email, nombreCompleto, fechaAlta, listaPedidos)
 }

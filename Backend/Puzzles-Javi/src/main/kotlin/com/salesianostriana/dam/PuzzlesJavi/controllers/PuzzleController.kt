@@ -7,6 +7,7 @@ import com.salesianostriana.dam.PuzzlesJavi.entities.Usuario
 import com.salesianostriana.dam.PuzzlesJavi.entities.dto.*
 import com.salesianostriana.dam.PuzzlesJavi.error.DeseadoNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.ListEntityNotFoundException
+import com.salesianostriana.dam.PuzzlesJavi.error.PedidoNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.error.SingleEntityNotFoundException
 import com.salesianostriana.dam.PuzzlesJavi.services.*
 import org.springframework.beans.factory.annotation.Autowired
@@ -36,9 +37,6 @@ class PuzzleController {
 
     @Autowired
     lateinit var pedidoService: PedidoService
-
-    @Autowired
-    lateinit var LineaDePedidoService: PedidoService
 
 
     //Lista de puzzles
@@ -193,9 +191,77 @@ class PuzzleController {
 
     }
 
+    /*******************************************************************************/
 
 
+    //Lista de pedidos
+    @GetMapping("/pedido")
+    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<GetPuzzleDto> {
+        return service.getPuzzlesPedido(usuario)
+            .map { it.toGetPuzzleDto(usuario) }
+            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Puzzle::class.java)
+    }
 
+    //Añadir a lista de pedidos
+    @PostMapping("/pedido/{id}")
+    fun addPuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
+        var puzzle = service.findById(id).orElse(null)
+        if (puzzle != null) {
+            usuario.lineaPedido.add(puzzle)
+            usuarioService.save(usuario)
+            return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
+        } else {
+            throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
+        }
+    }
 
+    @DeleteMapping("/pedido/{id}")
+    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+        usuario.lineaPedido.forEach { p ->
+            if (p.id == id) {
+                usuario.lineaPedido.remove(p)
+                usuarioService.save(usuario)
+            }
+        }
+        return ResponseEntity.noContent().build()
+
+    }
+
+    /*******************************************************************************/
+
+//    //Lista de pedidos
+//    @GetMapping("/pedido")
+//    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<GetPedidoDto> {
+//        return pedidoService.getPuzzlesPedido(usuario)
+//            .map { it.toGetPedidoDto(usuario)}
+//            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Puzzle::class.java)
+//    }
+//
+//    //Añadir a lista de pedidos
+//    @PostMapping("/pedido/{id}")
+//    fun addPuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetLineaPedidoDto> {
+//        var puzzle = service.findById(id).orElse(null)
+//        var pedido = pedidoService.findById(id).orElse(null)
+//        if (puzzle != null) {
+//            pedido.listaPedidos.add(puzzle)
+//            pedidoService.save(pedido)
+//            return ResponseEntity.status(HttpStatus.CREATED).body(pedido.toGetLineaPedidoDto(usuario))
+//        } else {
+//            throw SingleEntityNotFoundException(id.toString(), pedido::class.java)
+//        }
+//    }
+//
+//    @DeleteMapping("/pedido/{id}")
+//    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+//        var pedido = pedidoService.findById(id).orElse(null)
+//        pedido.listaPedidos.forEach{ p ->
+//            if (p.id == id) {
+//                pedido.listaPedidos.remove(p)
+//                pedidoService.save(pedido)
+//            }
+//        }
+//        return ResponseEntity.noContent().build()
+//
+//    }
 
 }

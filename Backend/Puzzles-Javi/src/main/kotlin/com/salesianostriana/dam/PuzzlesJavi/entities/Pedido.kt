@@ -16,8 +16,15 @@ class Pedido(
     @ManyToOne
     var usuario: Usuario? = null,
 
-    @OneToMany(mappedBy = "pedido", fetch=FetchType.EAGER)
-    var pedido: MutableList<LineaDePedido> = mutableListOf(),
+//    @OneToMany(mappedBy = "pedido", fetch=FetchType.EAGER)
+//    var listaPedidos: MutableList<Puzzle> = mutableListOf(),
+
+//    @ManyToMany(fetch=FetchType.EAGER)
+//    @JoinTable(name = "Pedido",
+//        joinColumns = [JoinColumn(name="pedido_id")],
+//        inverseJoinColumns = [JoinColumn(name="puzzle_id")]
+//    )
+//    var lineaPedido: MutableList<Puzzle> = mutableListOf(),
 
 
     @Id @GeneratedValue val id : Long? = null
