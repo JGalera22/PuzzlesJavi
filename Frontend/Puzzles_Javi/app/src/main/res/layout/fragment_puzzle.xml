@@ -63,4 +63,15 @@
         app:layout_constraintTop_toTopOf="@+id/text_view_categoria"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/ic_rompecabezas" />
+
+    <ImageButton
+        android:id="@+id/image_button_favorito2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/image_view_foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_view_precio"
+        app:srcCompat="@drawable/ic_favorite_border_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

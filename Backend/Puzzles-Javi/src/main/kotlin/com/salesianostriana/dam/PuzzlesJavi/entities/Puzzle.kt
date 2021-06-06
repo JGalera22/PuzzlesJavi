@@ -35,33 +35,8 @@ class Puzzle(
     )
     var usuariosDeseados: MutableList<Usuario> = mutableListOf(),
 
-//    @ManyToMany(fetch=FetchType.EAGER)
-//    @JoinTable(name = "Pedido",
-//        joinColumns = [JoinColumn(name="puzzle_id")],
-//        inverseJoinColumns = [JoinColumn(name="pedido_id")]
-//    )
-//    var Pedidos: MutableList<Pedido> = mutableListOf(),
-
-    /**********************************************/
-
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(name = "Pedido",
-        joinColumns = [JoinColumn(name="pedido_id")],
-        inverseJoinColumns = [JoinColumn(name="usuario_id")]
-    )
-    var lineaPedido: MutableList<Usuario> = mutableListOf(),
-
-    /**********************************************/
-
-
-
     @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
     var imagenes: MutableList<ImagenPuzzle> = mutableListOf(),
-
-
-//    @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
-//    var lineaPedido: MutableList<Pedido> = mutableListOf(),
-
 
     @Id @GeneratedValue val id : Long? = null
 
@@ -81,6 +56,10 @@ class Puzzle(
         return if (id != null)
             id.hashCode()
         else 0
+    }
+
+    fun toGetPedidoDto(usuario: Usuario) {
+
     }
 
 }

@@ -12,9 +12,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Usuario
 import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.Main_Admin.AdminActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.FilterActivity
+import com.naturesecurityvanguard.puzzles_Javi.ui.puzzles.FilterActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {

@@ -14,8 +14,8 @@ interface PuzzleRepository : JpaRepository<Puzzle, Long>{
 //    @Query("select p.lineaPedido from Pedido p where p = :pedido")
 //    fun findPuzzlesListaPedido(@Param("usuario") usuario: Usuario): List<Puzzle>
 
-    @Query("select u.lineaPedido from Usuario u where u = :usuario")
-    fun findPuzzlesListaPedido(@Param("usuario") usuario: Usuario): List<Puzzle>
+//    @Query("select u.lineaPedido from Usuario u where u = :usuario")
+//    fun findPuzzlesListaPedido(@Param("usuario") usuario: Usuario): List<Puzzle>
 
 
 }

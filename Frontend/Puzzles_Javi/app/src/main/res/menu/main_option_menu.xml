@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group
+    <!--<group
         android:id="@+id/group_admin"
-        android:visible="false">
+        android:visible="false">  -->
         <item android:title="Admin"
             android:id="@+id/action_admin"
             app:showAsAction="ifRoom"
             android:icon="@drawable/ic_profile_user" />
-    </group>
+    <!--</group>-->
     <group
         android:id="@+id/group_user"
         android:visible="true">

@@ -9,9 +9,7 @@ import org.springframework.data.repository.query.Param
 
 
 interface PedidoRepository : JpaRepository<Pedido, Long>{
-//    @Query("select p.lineaPedido from Pedido p where p = :pedido")
-//    fun findPuzzlesListaPedido(@Param("pedido") usuario: Usuario): List<Puzzle>
+    @Query("select p.lineaPedido from Pedido p where p = :pedido")
+    fun findPuzzlesListaPedido(@Param("pedido") usuario: Usuario): List<Puzzle>
 
-//    @Query("select u.puzzlesDeseados from Usuario u where u = :usuario")
-//    fun findPuzzlesDeseados(@Param("usuario") usuario: Usuario):List<Puzzle>
 }

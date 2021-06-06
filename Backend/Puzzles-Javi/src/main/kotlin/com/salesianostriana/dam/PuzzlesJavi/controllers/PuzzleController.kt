@@ -193,39 +193,39 @@ class PuzzleController {
 
     /*******************************************************************************/
 
-
-    //Lista de pedidos
-    @GetMapping("/pedido")
-    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<GetPuzzleDto> {
-        return service.getPuzzlesPedido(usuario)
-            .map { it.toGetPuzzleDto(usuario) }
-            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Puzzle::class.java)
-    }
-
-    //Añadir a lista de pedidos
-    @PostMapping("/pedido/{id}")
-    fun addPuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
-        var puzzle = service.findById(id).orElse(null)
-        if (puzzle != null) {
-            usuario.lineaPedido.add(puzzle)
-            usuarioService.save(usuario)
-            return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
-        } else {
-            throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
-        }
-    }
-
-    @DeleteMapping("/pedido/{id}")
-    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
-        usuario.lineaPedido.forEach { p ->
-            if (p.id == id) {
-                usuario.lineaPedido.remove(p)
-                usuarioService.save(usuario)
-            }
-        }
-        return ResponseEntity.noContent().build()
-
-    }
+//
+//    //Lista de pedidos
+//    @GetMapping("/pedido")
+//    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<GetPuzzleDto> {
+//        return service.getPuzzlesPedido(usuario)
+//            .map { it.toGetPuzzleDto(usuario) }
+//            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Puzzle::class.java)
+//    }
+//
+//    //Añadir a lista de pedidos
+//    @PostMapping("/pedido/{id}")
+//    fun addPuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetPuzzleDto> {
+//        var puzzle = service.findById(id).orElse(null)
+//        if (puzzle != null) {
+//            usuario.lineaPedido.add(puzzle)
+//            usuarioService.save(usuario)
+//            return ResponseEntity.status(HttpStatus.CREATED).body(puzzle.toGetPuzzleDto(usuario))
+//        } else {
+//            throw SingleEntityNotFoundException(id.toString(), puzzle::class.java)
+//        }
+//    }
+//
+//    @DeleteMapping("/pedido/{id}")
+//    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+//        usuario.lineaPedido.forEach { p ->
+//            if (p.id == id) {
+//                usuario.lineaPedido.remove(p)
+//                usuarioService.save(usuario)
+//            }
+//        }
+//        return ResponseEntity.noContent().build()
+//
+//    }
 
     /*******************************************************************************/
 

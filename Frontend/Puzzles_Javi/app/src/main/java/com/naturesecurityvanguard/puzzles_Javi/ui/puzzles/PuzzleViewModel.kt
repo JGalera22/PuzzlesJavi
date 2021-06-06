@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles
+package com.naturesecurityvanguard.puzzles_Javi.ui.puzzles
 
 import android.app.Application
 import android.content.Context
@@ -78,6 +78,43 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
                 Log.e("Error!!!", t.message.toString())
             }
         })
+    }
+
+    fun createPuzzleDeseado(puzzleId: Long, deseado: Boolean) {
+
+        if(!deseado){
+            service.createPuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Puzzle>{
+
+                override fun onResponse(call: Call<Puzzle>, response: Response<Puzzle>) {
+                    if(response.code() == 201){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Puzzle>, t: Throwable) {
+                    Log.e("Error", t.message.toString())
+                }
+
+            })
+        }
+        else{
+            service.deletePuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Any>{
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if(response.code() == 204){
+                        getPuzzleList()
+
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    Log.e("Error", t.message.toString())
+                }
+
+            })
+        }
+
+
     }
 
 }

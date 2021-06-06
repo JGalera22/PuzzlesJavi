@@ -31,55 +31,56 @@ class PedidoController {
     @Autowired
     lateinit var puzzleService: PuzzleService
 
-//    @GetMapping
-//    fun getAll(@AuthenticationPrincipal usuario: Usuario): List<GetPedidoDto> {
-//        return service.findAll()
-//            .map { it.toGetPedidoDto(usuario) }
-//            .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Pedido::class.java)
-//    }
-
-//    //Detalle de un pedido
-//    @GetMapping("/{id}")
-//    fun getById(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): GetPedidoDetalleDto {
-//            return service.findById(id)
-//                .map { it.toGetPedidoDetalleDto(usuario) }
-//                .orElseThrow {SingleEntityNotFoundException(id.toString(), Pedido::class.java)}
-//    }
-
-//    //Lista de pedidos
-//    @GetMapping
-//    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<GetPedidoDto> {
-//        return puzzleService.getPuzzlesPedido(usuario)
-//            .map { it.toGetPedidoDto(usuario)}
-//            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Pedido::class.java)
-//    }
-
-//    //Añadir a lista de pedidos
-//    @PostMapping("/{id}")
-//    fun addPuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetLineaPedidoDto> {
-//        var puzzle = puzzleService.findById(id).orElse(null)
-//        var pedido = service.findById(id).orElse(null)
-//        if (puzzle != null) {
-//            pedido.lineaPedido.add(puzzle)
-//            service.save(pedido)
-//            return ResponseEntity.status(HttpStatus.CREATED).body(pedido.toGetLineaPedidoDto(usuario))
-//        } else {
-//            throw SingleEntityNotFoundException(id.toString(), pedido::class.java)
-//        }
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
-//        var pedido = service.findById(id).orElse(null)
-//        pedido.lineaPedido.forEach{ p ->
-//            if (p.id == id) {
-//                pedido.lineaPedido.remove(p)
-//                service.save(pedido)
-//            }
-//        }
-//        return ResponseEntity.noContent().build()
-//
-//    }
 
 
+    @GetMapping ("/all")
+    fun getAll(@AuthenticationPrincipal usuario: Usuario): List<GetPedidoDto> {
+        return service.findAll()
+            .map { it.toGetPedidoDto(usuario) }
+            .takeIf { it!!.isNotEmpty() } ?: throw ListEntityNotFoundException(Pedido::class.java)
+    }
+
+    //Detalle de un pedido
+    @GetMapping("/{id}")
+    fun getById(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): GetPedidoDetalleDto {
+            return service.findById(id)
+                .map { it.toGetPedidoDetalleDto(usuario) }
+                .orElseThrow {SingleEntityNotFoundException(id.toString(), Pedido::class.java)}
+    }
+
+    //Lista de pedidos
+    @GetMapping
+    fun getPedidos(@AuthenticationPrincipal usuario: Usuario): List<Unit> {
+        return service.getPuzzlesPedido(usuario)
+            .map { it.toGetPedidoDto(usuario)}
+            .takeIf { it.isNotEmpty() } ?: throw PedidoNotFoundException(Pedido::class.java)
+    }
+
+
+    //Añadir a lista de pedidos
+    @PostMapping("/{id}")
+    fun addPuzzlePedido(@PathVariable id: Long, pedido_id: Long, @AuthenticationPrincipal usuario: Usuario) : ResponseEntity<GetLineaPedidoDto> {
+        var puzzle = puzzleService.findById(id).orElse(null)
+        lateinit var pedido: Pedido
+        if (puzzle != null) {
+            pedido.lineaPedido.add(puzzle)
+            service.save(pedido)
+            return ResponseEntity.status(HttpStatus.CREATED).body(pedido.toGetLineaPedidoDto(usuario))
+        } else {
+            throw SingleEntityNotFoundException(id.toString(), pedido::class.java)
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    fun deletePuzzlePedido(@PathVariable id: Long, @AuthenticationPrincipal usuario: Usuario): ResponseEntity<Any> {
+        var pedido = service.findById(id).orElse(null)
+        pedido.lineaPedido.forEach{ p ->
+            if (p.id == id) {
+                pedido.lineaPedido.remove(p)
+                service.save(pedido)
+            }
+        }
+        return ResponseEntity.noContent().build()
+
+    }
 }

@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
 
 /**

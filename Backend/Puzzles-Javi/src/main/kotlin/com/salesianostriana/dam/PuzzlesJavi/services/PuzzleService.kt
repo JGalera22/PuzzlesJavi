@@ -21,6 +21,6 @@ class PuzzleService(): BaseServiceImpl<Puzzle, Long, PuzzleRepository>() {
 
     fun getPuzzlesDeseados(usuario: Usuario): List<Puzzle> = repositorio!!.findPuzzlesDeseados(usuario)
 
-    fun getPuzzlesPedido(usuario: Usuario): List<Puzzle> = repositorio!!.findPuzzlesListaPedido(usuario)
+//    fun getPuzzlesPedido(usuario: Usuario): List<Puzzle> = repositorio!!.findPuzzlesListaPedido(usuario)
 
 }

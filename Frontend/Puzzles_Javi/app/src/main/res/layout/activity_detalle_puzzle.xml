@@ -92,24 +92,16 @@
                 app:layout_constraintTop_toTopOf="@+id/textView_numeroPiezas"
                 app:srcCompat="@drawable/ic_rompecabezas" />
 
-            <Button
-                android:id="@+id/button_añadir_deseados"
-                android:layout_width="220dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@color/green"
-                android:shadowColor="#4F95B2"
-                android:text="Añadir a deseados"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#4F95B2"
-                android:textColorHint="#4F95B2"
-                android:textColorLink="#4F95B2"
-                android:textSize="12sp"
+            <ImageButton
+                android:id="@+id/image_button_favorito2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_categoria"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_comprar"
-                app:rippleColor="#4F95B2"
-                app:strokeColor="#4F95B2" />
+                app:layout_constraintTop_toTopOf="@+id/textView_categoria"
+                app:srcCompat="@drawable/ic_favorite_border_24" />
 
             <Button
                 android:id="@+id/button_comprar"

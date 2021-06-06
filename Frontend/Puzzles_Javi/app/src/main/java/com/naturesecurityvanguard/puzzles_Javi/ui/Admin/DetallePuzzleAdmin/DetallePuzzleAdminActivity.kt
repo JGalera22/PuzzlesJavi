@@ -1,6 +1,5 @@
 package com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,12 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import coil.load
-import com.naturesecurityvanguard.puzzles_Javi.MainActivity
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.DetallePuzzle
 import com.naturesecurityvanguard.puzzles_Javi.retrofit.PuzzleService
 import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.Main_Admin.AdminActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.NuevoPuzzle.PuzzleNuevoActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

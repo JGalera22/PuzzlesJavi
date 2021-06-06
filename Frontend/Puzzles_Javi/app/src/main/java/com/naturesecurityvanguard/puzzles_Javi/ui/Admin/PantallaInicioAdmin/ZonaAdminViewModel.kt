@@ -30,6 +30,7 @@ class ZonaAdminViewModel(application: Application) : AndroidViewModel(applicatio
         get() = _puzzles
 
 
+
     init {
         _puzzles.value = listOf()
         val sharedPref = context?.getSharedPreferences("FILE_PREFERENCES", Context.MODE_PRIVATE)

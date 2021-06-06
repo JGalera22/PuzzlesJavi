@@ -15,11 +15,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.naturesecurityvanguard.puzzles_Javi.MainActivity
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.PantallaInicioAdmin.FilterActivityAdmin
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.FilterActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.login.LoginActivity
 
 class AdminActivity : AppCompatActivity() {
     lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
@@ -29,9 +29,10 @@ class AdminActivity : AppCompatActivity() {
     val navController = findNavController(R.id.nav_host_fragment_admin)
     val appBarConfiguration = AppBarConfiguration(
         setOf(
-            R.id.navigation_puzzle_admin, R.id.navigation_usuarios_admin
+            R.id.navigation_puzzle_admin,R.id.navigation_puzzle_nuevo, R.id.navigation_usuarios_admin
         )
     )
+
     setupActionBarWithNavController(navController, appBarConfiguration)
     navView.setupWithNavController(navController)
 

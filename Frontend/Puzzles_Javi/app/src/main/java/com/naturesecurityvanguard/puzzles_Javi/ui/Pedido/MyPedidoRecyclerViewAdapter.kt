@@ -11,11 +11,7 @@ import android.widget.TextView
 import coil.load
 import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.LineaPedido
-import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Pedido
-import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.Puzzle
 import com.naturesecurityvanguard.puzzles_Javi.ui.Admin.DetallePuzzleAdmin.DetallePuzzleAdminActivity
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.MyPuzzleRecyclerViewAdapter
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleViewModel
 
 class MyPedidoRecyclerViewAdapter(
         private val activity: Context,

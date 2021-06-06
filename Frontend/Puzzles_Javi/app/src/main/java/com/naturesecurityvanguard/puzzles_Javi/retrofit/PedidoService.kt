@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface PedidoService {
 
-    @GET("puzzle")
+    @GET("pedido")
     fun getPedidoList(@Header("Authorization") token: String?): Call<List<LineaPedido>>
 
 }

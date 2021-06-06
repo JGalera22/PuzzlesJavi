@@ -39,7 +39,7 @@ class DetallePuzzleActivity : AppCompatActivity() {
     lateinit var descripcionView: TextView
     lateinit var numeroPiezasView: TextView
     lateinit var imageView: ImageView
-    lateinit var btn: Button
+    lateinit var btn: ImageButton
     lateinit var btn2: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,7 @@ class DetallePuzzleActivity : AppCompatActivity() {
         descripcionView = findViewById(R.id.textView_descripcion)
         numeroPiezasView = findViewById(R.id.textView_numeroPiezas)
         imageView = findViewById(R.id.imageView_foto_principal)
-        btn = findViewById(R.id.button_añadir_deseados)
+        btn = findViewById(R.id.image_button_favorito2)
         btn2 = findViewById(R.id.button_comprar)
 
         btn.setOnClickListener(View.OnClickListener {
@@ -118,7 +118,6 @@ class DetallePuzzleActivity : AppCompatActivity() {
     fun createPuzzleDeseado(puzzleId: Long, deseado: Boolean) {
 
         if(!deseado){
-            btn.setText("Añadir a Deseados")
             service.createPuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Puzzle>{
 
                 override fun onResponse(call: Call<Puzzle>, response: Response<Puzzle>) {
@@ -135,7 +134,6 @@ class DetallePuzzleActivity : AppCompatActivity() {
             })
         }
         else{
-            btn.setText("Eliminar de Deseados")
             service.deletePuzzleDeseado("Bearer $token", puzzleId).enqueue(object : Callback<Any>{
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
                     if(response.code() == 204){
