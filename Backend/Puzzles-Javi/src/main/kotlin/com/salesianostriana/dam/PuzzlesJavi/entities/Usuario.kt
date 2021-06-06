@@ -44,6 +44,7 @@ class Usuario(
     private val credentialIsNonExpired: Boolean = true,
 
 
+
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "Lista_deseados",
         joinColumns = [JoinColumn(name="usuario_id")],

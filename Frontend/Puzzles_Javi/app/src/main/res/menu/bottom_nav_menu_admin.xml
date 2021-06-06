@@ -6,6 +6,11 @@
         android:icon="@drawable/ic_enchufar"
         android:title="@string/title_house_admin" />
 
+<!--    <item-->
+<!--        android:id="@+id/navigation_puzzle_nuevo"-->
+<!--        android:icon="@drawable/ic_dashboard_black_24dp"-->
+<!--        android:title="@string/nuevo_puzzle_admin" />-->
+
     <item
         android:id="@+id/navigation_usuarios_admin"
         android:icon="@drawable/ic_person_24px"

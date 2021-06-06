@@ -14,7 +14,6 @@ INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta,
 INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, true, true, 'garciadiaz@email.com', CURRENT_DATE, 'Ana García Díaz', true, true, '12345678', 'anagarcia', false,  NEXTVAL('hibernate_sequence'));
 INSERT INTO USUARIO(activo, admin, credential_is_non_expired, email, fecha_alta, nombre_completo, non_expired, non_locked, passwd, username, vip, id) VALUES(true, false, true, 'vazquezmarin@email.com', CURRENT_DATE, 'María Ángeles Vázquez Marín', true, true, '12345678', 'maríaángelesvazquez', false,  NEXTVAL('hibernate_sequence'));
 
-
 INSERT INTO usuario_roles (usuario_id, roles) VALUES(1, 'USER');
 INSERT INTO usuario_roles (usuario_id, roles) VALUES(2, 'ADMIN');
 INSERT INTO usuario_roles (usuario_id, roles) VALUES(3, 'USER');

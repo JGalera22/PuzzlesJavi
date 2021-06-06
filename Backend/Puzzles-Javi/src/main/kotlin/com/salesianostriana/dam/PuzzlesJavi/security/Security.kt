@@ -71,15 +71,15 @@ class WebSecurityConfiguration(
             .antMatchers(HttpMethod.POST, "/auth/login", "/auth/token", "/auth/register").permitAll()
             .antMatchers(HttpMethod.GET, "/puzzle", "/puzzle/{id}").permitAll()
 
-            .antMatchers(HttpMethod.GET, "/puzzle/deseado").hasAnyRole("USER", "ADMIN")
-            .antMatchers(HttpMethod.POST, "/puzzle/deseado/{id}").hasAnyRole("USER", "ADMIN")
-            .antMatchers(HttpMethod.DELETE,"/puzzle/deseado/{id}").hasAnyRole("USER", "ADMIN")
+            .antMatchers(HttpMethod.GET, "/puzzle/deseado", "/pedido", "/pedido/all").hasAnyRole("USER", "ADMIN")
+            .antMatchers(HttpMethod.POST, "/puzzle/deseado/{id}", "/pedido/{id}").hasAnyRole("USER", "ADMIN")
+            .antMatchers(HttpMethod.DELETE,"/puzzle/deseado/{id}", "/pedido/{id}").hasAnyRole("USER", "ADMIN")
             .antMatchers(HttpMethod.GET, "usuario/me").hasAnyRole("USER", "ADMIN")
 
             .antMatchers(HttpMethod.POST, "/puzzle", "/puzzle/deseado/{id}", "/puzzle/{id}/img").hasRole("ADMIN")
             .antMatchers(HttpMethod.PUT, "/puzzle/{id}").hasRole("ADMIN")
             .antMatchers(HttpMethod.DELETE, "/puzzle/{id}", "/puzzle/deseado/{id}", "/puzzle/{id}/img/{hash}").hasRole("ADMIN")
-            .antMatchers(HttpMethod.GET, "/usuario", "/usuario/{id}").hasRole("ADMIN")
+            .antMatchers(HttpMethod.GET, "/usuario", "/usuario/{id}, puzzle/admin").hasRole("ADMIN")
             .antMatchers(HttpMethod.PUT, "/usuario/{id}").hasRole("ADMIN")
             .antMatchers(HttpMethod.DELETE, "usuario/{id}").hasRole("ADMIN")
 

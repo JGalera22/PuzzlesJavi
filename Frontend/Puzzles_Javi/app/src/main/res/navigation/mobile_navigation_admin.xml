@@ -12,6 +12,16 @@
         tools:layout="@layout/fragment_puzzle_admin" />
 
     <fragment
+        android:id="@+id/navigation_puzzle_nuevo"
+        android:name="com.naturesecurityvanguard.puzzles_Javi.ui.Admin.NuevoPuzzle.PuzzleNuevoActivity"
+        android:label="@string/nuevo_puzzle_admin"
+        tools:layout="@layout/activity_puzzle_nuevo" >
+        <action
+            android:id="@+id/action_navigation_puzzle_nuevo_self"
+            app:destination="@id/navigation_puzzle_nuevo" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_usuarios_admin"
         android:name="com.naturesecurityvanguard.puzzles_Javi.ui.Admin.ListaUsuario.UsuarioFragment"
         android:label="@string/title_usuarios"

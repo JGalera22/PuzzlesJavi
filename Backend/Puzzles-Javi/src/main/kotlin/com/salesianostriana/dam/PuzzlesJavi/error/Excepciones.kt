@@ -43,5 +43,9 @@ data class DeseadoNotFoundException(
     val javaClass: Class<out Any>
 ) : EntityNotFoundException("No tiene ningun puzzle en su lista de deseados")
 
+data class PedidoNotFoundException(
+    val javaClass: Class<out Any>
+) : EntityNotFoundException("No tiene ningun puzzle en su Pedido")
+
 
 

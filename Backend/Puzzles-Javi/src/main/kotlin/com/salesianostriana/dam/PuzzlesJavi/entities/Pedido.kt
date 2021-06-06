@@ -17,13 +17,11 @@ class Pedido(
     var usuario: Usuario? = null,
 
     @OneToMany(mappedBy = "pedido", fetch=FetchType.EAGER)
-    var pedido: MutableList<LineaDePedido> = mutableListOf(),
-
+    var lineaPedido: MutableList<Puzzle> = mutableListOf(),
 
     @Id @GeneratedValue val id : Long? = null
 
 ){
-
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

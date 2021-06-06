@@ -24,6 +24,9 @@ class Puzzle(
     @ManyToOne
     var usuario: Usuario? = null,
 
+    @ManyToOne
+    var pedido: Pedido? = null,
+
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "Lista_deseados",
@@ -34,7 +37,6 @@ class Puzzle(
 
     @OneToMany(mappedBy="puzzle", cascade = arrayOf(CascadeType.ALL), orphanRemoval = true)
     var imagenes: MutableList<ImagenPuzzle> = mutableListOf(),
-
 
     @Id @GeneratedValue val id : Long? = null
 
@@ -54,6 +56,10 @@ class Puzzle(
         return if (id != null)
             id.hashCode()
         else 0
+    }
+
+    fun toGetPedidoDto(usuario: Usuario) {
+
     }
 
 }

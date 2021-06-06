@@ -15,7 +15,7 @@ import com.naturesecurityvanguard.puzzles_Javi.R
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.request.LoginRequest
 import com.naturesecurityvanguard.puzzles_Javi.data.poko.response.LoginResponse
 import com.naturesecurityvanguard.puzzles_Javi.retrofit.AuthService
-import com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.FilterActivity
+import com.naturesecurityvanguard.puzzles_Javi.ui.puzzles.FilterActivity
 import com.naturesecurityvanguard.puzzles_Javi.ui.registro.RegistroActivity
 import retrofit2.Response
 import retrofit2.Retrofit

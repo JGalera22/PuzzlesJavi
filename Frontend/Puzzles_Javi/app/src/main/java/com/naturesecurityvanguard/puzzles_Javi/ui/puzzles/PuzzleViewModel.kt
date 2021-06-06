@@ -1,4 +1,4 @@
-package com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles
+package com.naturesecurityvanguard.puzzles_Javi.ui.puzzles
 
 import android.app.Application
 import android.content.Context
@@ -93,7 +93,7 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
                 }
 
                 override fun onFailure(call: Call<Puzzle>, t: Throwable) {
-
+                    Log.e("Error", t.message.toString())
                 }
 
             })
@@ -108,7 +108,7 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
                 }
 
                 override fun onFailure(call: Call<Any>, t: Throwable) {
-
+                    Log.e("Error", t.message.toString())
                 }
 
             })
@@ -116,7 +116,6 @@ class PuzzleViewModel(application: Application) : AndroidViewModel(application) 
 
 
     }
-
 
 }
 

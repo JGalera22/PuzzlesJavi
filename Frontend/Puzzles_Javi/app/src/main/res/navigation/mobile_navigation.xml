@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_puzzle"
-        android:name="com.naturesecurityvanguard.puzzles_Javi.ui.ListaPuzzles.PuzzleFragment"
+        android:name="com.naturesecurityvanguard.puzzles_Javi.ui.puzzles.PuzzleFragment"
         android:label="@string/title_house"
         tools:layout="@layout/fragment_puzzle" />
 

@@ -2,18 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Admin"
-        android:id="@+id/action_admin"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_profile_user" />
+    <!--<group
+        android:id="@+id/group_admin"
+        android:visible="false">  -->
+        <item android:title="Admin"
+            android:id="@+id/action_admin"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_profile_user" />
+    <!--</group>-->
+    <group
+        android:id="@+id/group_user"
+        android:visible="true">
+        <item android:title="Filtrado"
+            android:id="@+id/action_filter"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_filter_list_24" />
 
-    <item android:title="Filtrado"
-        android:id="@+id/action_filter"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_filter_list_24" />
+        <item android:title="Log Out"
+            android:id="@+id/action_logout"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/ic_logout_24px" />
+    </group>
 
-    <item android:title="Log Out"
-        android:id="@+id/action_logout"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_logout_24px" />
 </menu>

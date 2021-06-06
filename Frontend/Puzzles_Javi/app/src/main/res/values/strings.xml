@@ -88,4 +88,6 @@
     <string name="title_house_admin">Admin Home</string>
     <string name="title_usuarios">Usuarios</string>
     <string name="compra">El dinero será abonado en tienda</string>
+    <string name="nuevo_puzzle">nuevo_puzzle_admin</string>
+    <string name="nuevo_puzzle_admin">Nuevo Puzzle</string>
 </resources>

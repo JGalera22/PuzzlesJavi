@@ -30,6 +30,7 @@ class ZonaAdminViewModel(application: Application) : AndroidViewModel(applicatio
         get() = _puzzles
 
 
+
     init {
         _puzzles.value = listOf()
         val sharedPref = context?.getSharedPreferences("FILE_PREFERENCES", Context.MODE_PRIVATE)
@@ -53,15 +54,15 @@ class ZonaAdminViewModel(application: Application) : AndroidViewModel(applicatio
 
         service = retrofit.create(PuzzleService::class.java)
 
-        getPuzzleList()
+        getPuzzleListAdmin()
 
     }
 
 
 
-    fun getPuzzleList() {
+    fun getPuzzleListAdmin() {
 
-        service.getPuzzleList("Bearer $token",categoria)
+        service.getPuzzleListAdmin("Bearer $token",categoria)
             .enqueue(object : Callback<List<Puzzle>> {
 
                 override fun onResponse(call: Call<List<Puzzle>>, response: Response<List<Puzzle>>) {
